@@ -19,7 +19,7 @@ public class Tablice {
             }
             
         } catch(FileNotFoundException e){
-            System.out.println("Błąd odczytu z pliku !!!"+e);
+            System.out.println("Błąd odczytu z pliku!"+e);
         }
 
         for (int j = 0; j < 10; j++) {

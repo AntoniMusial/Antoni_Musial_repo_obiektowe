@@ -1,6 +1,7 @@
+import java.io.Exception;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
 public class AntoniMusial {
@@ -324,9 +325,6 @@ public class AntoniMusial {
             aktualne_punkty = suma_punktow;
 
             if (Random == pytan[0]) {
-                String znaki = odpowiedz[0]
-                int actualValue = znaki.length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[0])) {
@@ -338,9 +336,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[1]) {
-                String znaki = odpowiedz[0]
-                int actualValue = length.length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[1])) {
@@ -352,9 +347,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[2]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[2].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[2])) {
@@ -366,9 +358,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[3]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[0].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[3])) {
@@ -380,9 +369,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[4]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[0].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.println("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[4])) {
@@ -394,9 +380,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[5]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[5].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[5])) {
@@ -408,9 +391,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[6]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[6].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[6])) {
@@ -422,9 +402,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[7]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[8].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[7])) {
@@ -436,9 +413,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[8]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[8].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[8])) {
@@ -450,9 +424,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[9]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[9].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[9])) {
@@ -464,9 +435,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[10]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[10].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[10])) {
@@ -478,9 +446,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[11]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[11].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[11])) {
@@ -492,9 +457,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[12]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[12].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[12])) {
@@ -506,9 +468,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[13]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[13].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[13])) {
@@ -520,9 +479,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[14]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[14].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[14])) {
@@ -534,9 +490,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[15]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[15].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[15])) {
@@ -548,9 +501,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[16]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[16].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[16])) {
@@ -562,9 +512,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[17]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[17].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[17])) {
@@ -576,9 +523,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[18]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[18].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[18])) {
@@ -590,9 +534,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[19]) {
-                String znaki = odpowiedz[0]
-                int actualValue = odpowiedz[19].length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[19])) {
@@ -604,9 +545,6 @@ public class AntoniMusial {
                     System.out.println("Twoje punkty: " + suma_punktow + "\n\n");
                 }
             } else if (Random == pytan[20]) {
-                String znaki = odpowiedz[0]
-                int actualValue = znaki.length();
-                System.out.println("Liczba znaków odpowiedzi" + actualValue);
                 System.out.print("Odpowiedź: ");
                 String odp = scan.nextLine();
                 if (odp.equals(odpowiedz[20])) {
@@ -1490,39 +1428,44 @@ public class AntoniMusial {
                 System.out.print("Nie ma takiego pytania zapisanego w kodzie");
             }
         }
-
-        File file = new File("Wynik.txt");
-        PrintWriter writer = new PrintWriter(file);
-
-        Scanner scan1 = new Scanner(System.in);
-        System.out.println("Zapisz wynik. (1)\nWczytaj wynik. (2)\nWszystko powyżej. (3)");
-        int odp1 = scan1.nextInt();
-        if (odp1 == 1) {
-            writer.println("Twoj wynik: " + suma_punktow);
-
-            System.out.println("Zapisano.");
-        } else if (odp1 == 2) {
-            Scanner scanner = new Scanner(file);
-            int i = 0;
-            while (i < 10) {
-                String wynik = scanner.nextLine();
-                System.out.println(wynik);
-                i++;
-            }
-        } else if (odp1 == 3) {
-            writer.println("Twoj wynik: " + suma_punktow);
-            writer.close();
-            System.out.println("Zapisano.");
+        try{
+            File file = new File("Wynik.txt");
+            FileWriter writer = new FileWriter(file,true);
     
-            Scanner scanner = new Scanner(file);
-            int i = 0;
-            while (i < 10) {
-                String wynik = scanner.nextLine();
-                System.out.println(wynik);
-                i++;
+            Scanner scan1 = new Scanner(System.in);
+            System.out.println("Zapisz wynik. (1)\nWczytaj wynik. (2)\nWszystko powyżej. (3)");
+            int odp1 = scan1.nextInt();
+            if (odp1 == 1) {
+                writer.write("Twoj wynik: " + suma_punktow);
+    
+                System.out.println("Zapisano.");
+            } else if (odp1 == 2) {
+                Scanner scanner = new Scanner(file);
+                int i = 0;
+                while (i < 10) {
+                    String wynik = scanner.nextLine();
+                    System.out.println(wynik);
+                    i++;
+                }
+            } else if (odp1 == 3) {
+                writer.write("Twoj wynik: " + suma_punktow);
+                
+                System.out.println("Zapisano.");
+        
+                Scanner scanner = new Scanner(file);
+                int i = 0;
+                while (i < 10) {
+                    String wynik = scanner.nextLine();
+                    System.out.println(wynik);
+                    i++;
+                }
+            } else {
+                System.out.println("Coś poszło nie tak :/");
             }
-        } else {
-            System.out.println("Coś poszło nie tak :/");
+            writer.close();
+        } catch(Exception ex){
+
         }
+        
     }
 }
