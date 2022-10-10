@@ -3,7 +3,7 @@ public class Zadanie2 {
 
     }
 
-    public String nazwa_toru {
+    public String nazwa_toru; {
 
     }
 }
