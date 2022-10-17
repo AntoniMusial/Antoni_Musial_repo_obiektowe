@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e956721d-38d5-4640-bacc-36fda5356e17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Zadania/out/production/Zadania/zadanie1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Zadania/out/production/Zadania/zadanie1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Zadania/src/Zadanie2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Zadania/src/Zadanie2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Zadania/src/zadanie1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Zadania/src/zadanie1.java" afterDir="false" />
-    </list>
+    <list default="true" id="e956721d-38d5-4640-bacc-36fda5356e17" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="2Ef7k7uct6zFJUyo0NSaAThtXXa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -31,7 +30,11 @@
       <option name="presentableId" value="Default" />
       <updated>1662974925133</updated>
       <workItem from="1662974926851" duration="3000" />
+      <workItem from="1665993274616" duration="177000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
