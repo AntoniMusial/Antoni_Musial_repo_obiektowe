@@ -1,26 +1,27 @@
 public class Numbers {
-    private static int l1 = 2;
-
-    public static int getL1() {
+    private Numbers l1;
+    public Numbers getL1() {
         return l1;
     }
-
-    public static void setL1(int l1) {
-        Numbers.l1 = l1;
+    public void setL1(Numbers l1) {
+        this.l1 = l1;
     }
 
-
-    private static int l2;
-
-    public int getL2() {
+    private Numbers l2;
+    public Numbers getL2() {
         return l2;
     }
-
-    public void setL2(int l2) {
-        Numbers.l2 = l2;
+    public void setL2(Numbers l2) {
+        this.l2 = l2;
     }
 
-    static void showMultiply(l1, l2) {
+    public Numbers(Numbers l1, Numbers l2) {
+        this.l1 = l1;
+        this.l2 = l2;
+    }
+
+    static void showMultiply(Numbers l1, Numbers l2) {
+        int sum = 
         System.out.println(l1 * l2);
     }
 
