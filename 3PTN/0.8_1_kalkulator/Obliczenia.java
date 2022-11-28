@@ -1,64 +1,31 @@
 public class Obliczenia {
-    private int l1, l2;
- 
-    // Setter
-    public void setL1(Integer newl1) {
-      this.l1 = newl1;
+    public double l1;
+    public double l2;
+    String znak;
+
+    public void obliczeniaDodawanie(double l1, double l2) {
+        System.out.println("\nWynik: " + l1 + " + " + l2 + " = " + (l1 + l2) + "\n=====================");
     }
 
-    public static int getL1() {
-        return l2;
-    }
-    
-    public static int getL2() {
-        return l2;
+    public void obliczeniaOdejmowanie(double l1, double l2) {
+        System.out.println("\nWynik: " + l1 + " - " + l2 + " = " + (l1 - l2) + "\n=====================");
     }
 
-    public static void setL2(int l2) {
-        Main.l2 = l2;
+    public void obliczeniaMnozenie(double l1, double l2) {
+        System.out.println("\nWynik: " + l1 + " * " + l2 + " = " + (l1 * l2) + "\n=====================");
     }
 
-    //MNOŻENIE
-    public int mnozenie() {
-        System.out.println("mnozenie");
-        return (l1 * l2);
+    public void obliczeniaDzielenie(double l1, double l2) {
+        System.out.println("\nWynik: " + l1 + " ÷ " + l2 + " = " + (l1 / l2) + "\n=====================");
     }
 
-    //DZIELENIE
-    int dzielenie() {
-        System.out.println("dzielenie");
-        return 0;
-    }
-    
-    //DODAWANIE
-    int dodawanie() {
-        System.out.println("dodawanie");
-        return 0;
-    }
-    
-    //ODEJMOWANIE
-    int odejmowanie() {
-        System.out.println("odejmowanie");
-        return 0;
-    }
-    
-    //POTĘGOWANIE
-    int potegowanie() {
-        System.out.println("potegowanie");
-        return 0;
-    }
-    
-    //PIERWIASTKOWANIE
-    int pierwiastkowanie() {
-        System.out.println("pierwiastkowanie");
-        return 0;
+    public void obliczeniaPotega(double l1, double l2) {
+        double potega = Math.pow(l1, l2);
+        System.out.println("\nWynik: " + l1 + " ^ " + l2 + " = " + potega + "\n=====================");
     }
 
-    public static void main(String[] args) {
-        final int getL1() {
-            return l1;
-        }
-
-        System.out.println(l1);
+    public void obliczeniaPierwiastek(double l1) {
+        double pierwiastek = Math.sqrt(l1);
+        System.out.println("\nWynik: " + "√" + l1 + " = " + pierwiastek + "\n=====================");
     }
 }
