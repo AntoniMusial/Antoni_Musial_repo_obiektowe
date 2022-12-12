@@ -1,7 +1,14 @@
 public class Gamelogic {
-    public void 
+    Carddraw carddraw = new Carddraw();
+
+    public void start() {
+        carddraw.shufflePlayer();
+        carddraw.shuffleCroupier();
+    }
+
     public static void main(String[] args) {
-        Carddraw carddraw = new Carddraw();
         Gamelogic gamelogic = new Gamelogic();
+
+        gamelogic.start();
     }
 }
