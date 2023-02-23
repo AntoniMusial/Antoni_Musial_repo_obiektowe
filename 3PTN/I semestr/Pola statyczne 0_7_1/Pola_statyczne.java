@@ -1,6 +1,8 @@
 public class Pola_statyczne {
     public static void main(String[] args) {
         Numbers numbers = new Numbers();
+        numbers.getL1();
+        numbers.getL2();
         numbers.obliczN();
         System.out.println("Wyliczanie sumy l1 oraz l2");
         numbers.showMiltiply();
