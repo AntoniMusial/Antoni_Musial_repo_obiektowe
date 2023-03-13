@@ -19,8 +19,8 @@
 |		* Obiekt, włączający cały program o nazwie Start()		  						 |
 |																		 |
 |	4. Zrób w klasie Settings:													 |
-|		* Wybór ilości graczy													 |
-|		* Ustalenie ilości rund gry												 |
+|		* Wybór ilości graczy	Done												 |
+|		* Ustalenie ilości rund gry	Done											 |
 |		- Wybór kategorii (wyłączenie losowania kategorii)								 |
 |		- Wybór trudności zadania (wyłączenie losowania trudności)							 |
 |																		 |
