@@ -1,0 +1,90 @@
+Web development,What is HTML?,Markup language for websites,1
+Web development,What is CSS?,Stylesheet language for HTML,1
+Web development,What is JavaScript?,Programming language for web,1
+Web development,What is a web framework?,Tool for web development,2
+Web development,What is a web server?,Software to serve websites,2
+Web development,What is a database?,Software to store data,2
+Web development,What is responsive design?,Design for different devices,3
+Web development,What is a content management system (CMS)?,Tool to manage website content,3
+Web development,What is web accessibility?,Design for disabilities,3
+Mobile app development,What is a mobile app?,Software for mobile devices,1
+Mobile app development,What is iOS?,Apple mobile operating system,1
+Mobile app development,What is Android?,Google mobile operating system,1
+Mobile app development,What is a mobile SDK?,Software development kit for mobile,2
+Mobile app development,What is an API?,Interface for software communication,2
+Mobile app development,What is a mobile UI?,User interface for mobile,2
+Mobile app development,What is cross-platform development?,Develop for multiple platforms,3
+Mobile app development,What is a mobile app store?,Online marketplace for apps,3
+Mobile app development,What is mobile app security?,Protection against attacks,3
+Data science,What is data science?,Analyze and interpret data,1
+Data science,What is a dataset?,Collection of data,1
+Data science,What is a data scientist?,Professional who analyzes data,1
+Data science,What is data preprocessing?,Cleaning and transforming data,2
+Data science,What is data visualization?,Representing data visually,2
+Data science,What is statistical analysis?,Analyzing data using statistics,2
+Data science,What is machine learning?,Algorithmic learning from data,3
+Data science,What is deep learning?,Neural network learning,3
+Data science,What is natural language processing?,Analyzing and generating language,3
+Machine learning,What is machine learning?,Algorithmic learning from data,1
+Machine learning,What is a model?,Mathematical representation of data,1
+Machine learning,What is supervised learning?,Learning with labeled data,1
+Machine learning,What is unsupervised learning?,Learning with unlabeled data,2
+Machine learning,What is reinforcement learning?,Learning through feedback,2
+Machine learning,What is feature engineering?,Selecting and transforming features,2
+Machine learning,What is a neural network?,Artificial brain-like network,3
+Machine learning,What is deep learning?,Neural network learning,3
+Machine learning,What is transfer learning?,Applying learned knowledge,3
+Cybersecurity,What is cybersecurity?,Protecting against digital threats,1
+Cybersecurity,What is a firewall?,Security barrier for networks,1
+Cybersecurity,What is a password?,Secret code for access,1
+Cybersecurity,What is encryption?,Scrambling data for security,2
+Cybersecurity,What is a vulnerability?,Weakness in security,2
+Cybersecurity,What is a hacker?,Unauthorized digital intruder,2
+Cybersecurity,What is penetration testing?,Testing security weaknesses,3
+Cybersecurity,What is a security audit?,Review of security measures,3
+Cybersecurity,What is cybersecurity governance?,Management of security policies,3
+Operating systems,What is an operating system?,Software to manage hardware,1
+Operating systems,What is Windows?,Microsoft operating system,1
+Operating systems,What is macOS?,Apple operating system,1
+Operating systems,What is a file system?,Organizing data on disk,2
+Operating systems,What is a process?,Running program in memory,2
+Operating systems,What is virtual memory?,Simulating more memory,2
+Operating systems,What is a kernel?,Core of an operating system,3
+Operating systems,What is system call?,Program interface to OS,3
+Operating systems,What is device driver?,Software to interface hardware,3
+Robotics,What is a robot?,Programmable machine,1
+Robotics,What is a sensor?,Device to measure data,1
+Robotics,What is an actuator?,Device to move robot,1
+Robotics,What is a robot arm?,Manipulator for robot,2
+Robotics,What is a control system?,Software to manage robot,2
+Robotics,What is machine vision?,Robot vision system,2
+Robotics,What is autonomous navigation?,Self-guided robot movement,3
+Robotics,What is swarm robotics?,Cooperation of many robots,3
+Robotics,What is robot ethics?,Ethics in robotics design,3
+Artificial intelligence,What is artificial intelligence?,Machine intelligence,1
+Artificial intelligence,What is a neural network?,Artificial brain-like network,1
+Artificial intelligence,What is a chatbot?,Conversational AI program,1
+Artificial intelligence,What is natural language processing?,Analyzing and generating language,2
+Artificial intelligence,What is computer vision?,Analyzing and interpreting images,2
+Artificial intelligence,What is reinforcement learning?,Learning through feedback,2
+Artificial intelligence,What is deep learning?,Neural network learning,3
+Artificial intelligence,What is generative adversarial network (GAN)?,AI model for generating data,3
+Artificial intelligence,What is explainable AI?,Making AI decisions transparent,3
+Internet of Things (IoT),What is the Internet of Things (IoT)?,Connected devices network,1
+Internet of Things (IoT),What is a sensor?,Device to measure data,1
+Internet of Things (IoT),What is an actuator?,Device to control data,1
+Internet of Things (IoT),What is a microcontroller?,Embedded system processor,2
+Internet of Things (IoT),What is a gateway?,Link between IoT devices,2
+Internet of Things (IoT),What is cloud computing?,Remote data storage and processing,2
+Internet of Things (IoT),What is edge computing?,Processing data on IoT devices,3
+Internet of Things (IoT),What is industrial IoT (IIoT)?,IoT for industrial use,3
+Internet of Things (IoT),What is IoT security?,Protection against IoT threats,3
+Game development,What is game development?,Creating video games,1
+Game development,What is a game engine?,Software to build games,1
+Game development,What is a sprite?,2D graphic element,1
+Game development,What is a game loop?,Core structure of games,2
+Game development,What is collision detection?,Detecting object collisions,2
+Game development,What is pathfinding?,Finding optimal paths,2
+Game development,What is artificial intelligence in games?,Implementing AI in games,3
+Game development,What is a game script?,Code for game behavior,3
+Game development,What is virtual reality (VR)?,Immersive game experience,3

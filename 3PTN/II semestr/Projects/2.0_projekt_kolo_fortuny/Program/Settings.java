@@ -6,12 +6,12 @@ public class Settings {
     int NumberOfRounds;
     int i;
 
-    void cls() {
+    public void cls() {
         System.out.print("\033[H\033[2J");  
         System.out.flush(); 
     }
 
-    void setPlayers() {
+    public void setPlayers() {
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -34,7 +34,7 @@ public class Settings {
         System.out.println("----------------------");
     }
 
-    void viewPlayers() {
+    public void viewPlayers() {
         System.out.println("Players' names");
 
         for (i = 0; i < NumberOfPlayers; i++) {
@@ -44,7 +44,7 @@ public class Settings {
         System.out.println("----------------------");
     }
 
-    void setRounds() {
+    public void setRounds() {
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -59,7 +59,7 @@ public class Settings {
         System.out.println("----------------------\nNumber of rounds | " + NumberOfRounds + "\n----------------------");
     }
 
-    void vievRounds() {
+    public void vievRounds() {
         System.out.println("----------------------\nNumber of rounds | " + NumberOfRounds + "\n----------------------");
     }
 }

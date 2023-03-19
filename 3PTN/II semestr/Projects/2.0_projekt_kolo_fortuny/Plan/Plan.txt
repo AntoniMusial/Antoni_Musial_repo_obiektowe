@@ -1,26 +1,26 @@
 |-----------------------|
 |	Plan Działania	|
 |-----------------------|------------------------------------------------------------------------------------|
-|	1. Klasa Play z interface z następującymi wyborami:									 |
-|		* 1 - Play															 |
-|		* 2 - Settings														 |
-|		* 3 - Help															 |
-|		* 4 - Exit															 |
-|		* Po kliknieciu rożniącego się numeru od podanych pętla się powtarza					 |
+|	1. Klasa Play z interface z następującymi wyborami:									 |DONE
+|		* 1 - Play															 |DONE
+|		* 2 - Settings														 |DONE
+|		* 3 - Help															 |DONE
+|		* 4 - Exit															 |DONE
+|		* Po kliknieciu rożniącego się numeru od podanych pętla się powtarza					 |DONE
 |																		 |
-|	2. Utwórz następujące klasy:	Done												 |
-|		* Play															 |
-|		* Settings															 |
-|		* Help															 |
-|		* Points															 |
-|		* Questions															 |
+|	2. Utwórz następujące klasy:													 |DONE
+|		* Play															 |DONE
+|		* Settings															 |DONE
+|		* Help															 |DONE
+|		* Points															 |DONE
+|		* Questions															 |DONE
 |																		 |
 |	3. Zrób w Klasie Play:	Done													 |
 |		* Obiekt, włączający cały program o nazwie Start()		  						 |
 |																		 |
 |	4. Zrób w klasie Settings:													 |
-|		* Wybór ilości graczy	Done												 |
-|		* Ustalenie ilości rund gry	Done											 |
+|		* Wybór ilości graczy													 |DONE
+|		* Ustalenie ilości rund gry												 |DONE
 |		- Wybór kategorii (wyłączenie losowania kategorii)								 |
 |		- Wybór trudności zadania (wyłączenie losowania trudności)							 |
 |																		 |
@@ -32,29 +32,33 @@
 |		* Określenie kto wygrał													 |
 |																		 |
 |	7. Zrób w klasie Questions:													 |
-|		* Plik cvs o nazwie "Questions"											 |
-|			* Plik zapisywany w formacie "kategoria,pytanie,odpowiedź,trudność;"				 |
+|		* Plik cvs o nazwie "Questions"											 |DONE
+|			* Plik zapisywany w formacie "kategoria,pytanie,odpowiedź,trudność;"				 |DONE
+|																		 |
 |		* Obiekt "Questions"													 |
 |			* zapisywanie tresci z pliku cvs do trzech oddzielnych tablic "Question, Answer, Trudnosc" | 
-|			w obiektach  w następujący sposób:										 |
+|			w obiektach  w następujący sposób:										 |DONE
 |				* Obiekt będzie miał taką nazwę jak pierwsza wartość przed przecinkiem, 		 |
 |				nazwa obiektów ma się nie powtarzać i tworzyć tylko jeżeli pierwsza wartość przed	 |
-|				przecinkiem będzie się różniła od poprzedniej nazwy utworzonego obiektu. 		 |
+|				przecinkiem będzie się różniła od poprzedniej nazwy utworzonego obiektu. 		 |DONE
 |																		 |
 |				* w Każdym obiekcie będą utworzone 3 następujące tablice:					 |
 |					1. Tablica Question: zapisywana jest druga wartość do przecinka 			 |
-| 					przed znakiem ";".										 |
+| 					przed znakiem ";".										 |DONE
 |																		 |
-|					2. Do tablicy Answer: zapisywana jest trzeciawartość do przecinka			 |
-|					przed znakiem ";".										 |
+|					2. Do tablicy Answer: zapisywana jest trzecia wartość do przecinka		 |
+|					przed znakiem ";".										 |DONE
 |																		 |
-|					3. Do tablicy Trudnosc: zapisywana jest wartość od przecinka do znaku ";".	 |
+|					3. Do tablicy Trudnosc: zapisywana jest wartość od przecinka do znaku ";".	 |DONE
+|																		 |
 |		* Obiekt "Draw"														 |
 |			* Losowanie kategorii												 |
 |			* Losowanie trudności pytań odpowiadającej kategorii							 |
 |			* Losowanie pytania do odpowiadającej trudności kategorii						 |
+|																		 |
 |		* Obiekt "Answer_of_Player"												 |
 |			* Pobiera odpowiedź na wylosowane pytanie od użytkownika						 |
+|																		 |
 |		* Obiekt "Check_Answer_of_Player"											 |
 |			* Porównuje odpowiedź użytkownika do odpowiedzi z tablicy na wylosowane pytanie		 |
 |																		 |
