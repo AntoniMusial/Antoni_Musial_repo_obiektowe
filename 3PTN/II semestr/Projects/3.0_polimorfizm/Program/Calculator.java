@@ -24,6 +24,13 @@ public class Calculator {
 
                         if (input.equals("x")) {
                             continueInput = false;
+                            
+                            System.out.print( "1 - Sum\n2 - Difference\n3 - Multiplication\n4 - Division\n5 - Back\n\nMy Choose | ");
+                            i = sc1.nextInt();
+                        do {
+                            System.out.println("blbalbl");
+                        }
+                        while (i != 5);
                         } else {
                             try {
                                 double number = Double.parseDouble(input);                                                      //Próba przekształcenia wprowadzonego ciągu znaków na liczbę zmiennoprzecinkową
@@ -34,13 +41,13 @@ public class Calculator {
                         }
                     }
 
-                    Calculator calculator = new Calculator();
-                    Calculation sum = calculator.new Sum();                                                                     //Definiowanie 4 kolejnych obiektów
-                    Calculation diff = calculator.new Diff();
-                    Calculation multi = calculator.new Multi();
-                    Calculation divid = calculator.new Divid();
+                    Calculation sum = new Sum();                                                                     //Definiowanie 4 kolejnych obiektów
+                    Calculation diff = new Diff();
+                    Calculation multi = new Multi();
+                    Calculation divid = new Divid();
                     
-                    System.out.println("=========================================\nSum result | " + sum.calculate(numbers));    //Po zakończeniu pętli wyświetla się komunikat + wynik zadeklarowany w klasie nadrzędnej po Calculation
+                    System.out.println("=========================================\nSelected numbers | " + numbers);
+                    System.out.println("\nSum result | " + sum.calculate(numbers));                                             //Po zakończeniu pętli wyświetla się komunikat + wynik zadeklarowany w klasie nadrzędnej po Calculation
                     System.out.println("Difference result | " + diff.calculate(numbers));
                     System.out.println("Multiplication result | " + multi.calculate(numbers));
                     System.out.println("Division result | " + divid.calculate(numbers));
