@@ -16,8 +16,7 @@ public class Play {
             if (Choose == 1) { // Play
                 settings.cls();
                 System.out.println("You choosed | Play\n----------------------");
-                questions.vievQuestions();
-                System.out.println(questions.answer[1]);
+                questions.displayQuestions();
             } else if (Choose == 2) { // Settings
                 settings.cls();
                 System.out.println("You choosed | Settings\n----------------------");
