@@ -1,7 +1,8 @@
-import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class ChooseCategory extends Questions {
+    public String selectedCategory;
     public void choose() {
         Questions questions = new Questions();
         HashMap<String, Object[]> objects = questions.viewQuestions();
@@ -9,25 +10,27 @@ public class ChooseCategory extends Questions {
         for (String category : objects.keySet()) {
             System.out.println(category);
         }
-        
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Wybierz kategorię | ");
-        String selectedCategory = scanner.nextLine();
-        
+        System.out.print("Choose a category | ");
+        selectedCategory = scanner.nextLine();
+
         while (!objects.containsKey(selectedCategory)) {
-            System.out.println("Not Found this category | " + selectedCategory);
-            System.out.print("Please choose other category | ");
+            System.out.println("Category not found | " + selectedCategory);
+            System.out.print("Please choose another category | ");
             selectedCategory = scanner.nextLine();
         }
-        
-        Object[] selectedQuestions = objects.get(selectedCategory);
-        for (Object question : selectedQuestions) {
-            System.out.println(question);
-        }
-    }    
+    }
 
     public static void main(String[] args) {
-        ChooseCategory choosecategory = new ChooseCategory();
-        choosecategory.choose();
+        ChooseCategory chooseCategory = new ChooseCategory();
+        chooseCategory.choose();
+
+        ViewQuestionsFromSelectedCategory viewQuestions = new ViewQuestionsFromSelectedCategory();
+        viewQuestions.view(chooseCategory.selectedCategory);
+
+        ViewSelectedCategory viewSelectedCategory = new ViewSelectedCategory();
+        viewSelectedCategory.view(chooseCategory.selectedCategory);
+        System.out.println("Selected category: " + chooseCategory.selectedCategory);
     }
 }

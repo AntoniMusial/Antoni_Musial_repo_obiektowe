@@ -51,11 +51,11 @@ public class Questions {
             ArrayList<String> answers = (ArrayList<String>)object[1];
             ArrayList<String> difficulties = (ArrayList<String>)object[2];
             
-            System.out.println("Kategoria | " + category + "\n");
+            System.out.println("Category | " + category + "\n");
             for (int i = 0; i < questions.size(); i++) {
-                System.out.print("Pytanie | " + questions.get(i) + "\n");
-                System.out.print("Odpowiedź | " + answers.get(i) + "\n");
-                System.out.print("Trudność | " + difficulties.get(i) + "\n\n");
+                System.out.print("Question | " + questions.get(i) + "\n");
+                System.out.print("Answer | " + answers.get(i) + "\n");
+                System.out.print("Difficulty | " + difficulties.get(i) + "\n\n");
             }
             System.out.print("\n");
         }
