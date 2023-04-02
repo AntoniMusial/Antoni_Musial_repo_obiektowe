@@ -15,8 +15,8 @@
 |		* Points															 |DONE
 |		* Questions															 |DONE
 |																		 |
-|	3. Zrób w Klasie Play:	Done													 |
-|		* Obiekt, włączający cały program o nazwie Start()		  						 |
+|	3. Zrób w Klasie Play:														 |Done
+|		* Obiekt, włączający cały program o nazwie Start()		  						 |Done
 |																		 |
 |	4. Zrób w klasie Settings:													 |
 |		* Wybór ilości graczy													 |DONE

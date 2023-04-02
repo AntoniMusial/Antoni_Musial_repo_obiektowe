@@ -89,7 +89,7 @@ public class Play {
                         System.out.println("You have selected | Categories\n----------------------");
 
                         do {
-                            System.out.print("1 - Set categories\n2 - View all categories\n3 - View selected categories (ONLY IF YOU SELECTED)\n 4 - Back\n----------------------\nSelect number | ");
+                            System.out.print("1 - Set categories\n2 - View all categories\n3 - View selected categories (ONLY IF YOU SELECTED)\n4 - Back\n----------------------\nSelect number | ");
                             Choose = sc.nextInt();
         
                             if (Choose == 1) {
@@ -116,7 +116,7 @@ public class Play {
         
                                     }
                                 }
-                                while (Choose != 3);
+                                while (Choose != 4);
                                 
 
                             } else if (Choose == 2) {
