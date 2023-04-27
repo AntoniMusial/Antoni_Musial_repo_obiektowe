@@ -10,6 +10,7 @@ public class Play {
         ChooseCategory chooseCategory = new ChooseCategory();
         ViewQuestionsFromSelectedCategory viewQuestionsFromSelectedCategory = new ViewQuestionsFromSelectedCategory();
         ViewSelectedCategory viewSelectedCategory = new ViewSelectedCategory();
+        Draw draw = new Draw();
         
         int Choose;
         do {
@@ -19,9 +20,6 @@ public class Play {
             if (Choose == 1) { // Play
                 settings.cls();
                 System.out.println("You have selected | Play\n----------------------");
-                
-                System.out.print("1 - Play\n2 - Settings\n3 - Help\n4 - Exit\n----------------------\nSelect number | ");
-                Choose = sc.nextInt();
                 questions.displayQuestions();
                 
             } else if (Choose == 2) { // Settings
@@ -29,7 +27,7 @@ public class Play {
                 System.out.println("You have selected | Settings\n----------------------");
 
                 do {
-                    System.out.print("1 - Players\n2 - Rounds\n3 - Categories\n4 - Back\n----------------------\nSelect number | ");
+                    System.out.print("1 - Players\n2 - Rounds\n3 - Questions\n4 - Back\n----------------------\nSelect number | ");
                     Choose = sc.nextInt();
 
                     if (Choose == 1) {
@@ -86,29 +84,61 @@ public class Play {
 
                     } else if (Choose == 3) {
                         settings.cls();
-                        System.out.println("You have selected | Categories\n----------------------");
+                        System.out.println("You have selected | Questions\n----------------------");
 
                         do {
-                            System.out.print("1 - Set categories\n2 - View all categories\n3 - View selected categories (ONLY IF YOU SELECTED)\n4 - Back\n----------------------\nSelect number | ");
+                            System.out.print("1 - Categories\n2 - Difficulty of questions\n3 - Questions\n4 - Back\n----------------------\nSelect number | ");
                             Choose = sc.nextInt();
-        
+
                             if (Choose == 1) {
                                 settings.cls();
-                                System.out.println("You have selected | Set categories");
+                                System.out.println("You have selected | Categories");
 
                                 do {
-                                    System.out.print("1 - Random\n2 - Set 1 Category\n3 - Back\n----------------------\nSelect number | ");
+                                    System.out.print("1 - Set categories\n2 - Set random categories\n3 - View all categories\n4 - View selected category\n5 - Back\n----------------------\nSelect number | ");
                                     Choose = sc.nextInt();
-                
+
                                     if (Choose == 1) {
                                         settings.cls();
-                                        System.out.println("You have selected | Random");
-                                        System.out.println("Now the questions in game will come from random categories.");
+                                        System.out.println("You have selected | Set categories");
+        
+                                        do {
+                                            System.out.print("1 - Random\n2 - Set 1 Category\n3 - Back\n----------------------\nSelect number | ");
+                                            Choose = sc.nextInt();
+                        
+                                            if (Choose == 1) {
+                                                settings.cls();
+                                                System.out.println("You have selected | Random");
+                                                System.out.println("Now the questions in game will come from random categories.");
+                
+                                            } else if (Choose == 2) {
+                                                settings.cls();
+                                                System.out.println("You have selected | Set 1 Category");
+                                                chooseCategory.choose();
+                
+                                            } else {
+                                                settings.cls();
+                                                System.out.println("Wrong number\n----------------------");
+                
+                                            }
+                                        }
+                                        while (Choose != 3);
         
                                     } else if (Choose == 2) {
                                         settings.cls();
-                                        System.out.println("You have selected | Set 1 Category");
-                                        chooseCategory.choose();
+                                        System.out.println("You have selected | Set random categories");
+        
+                                    } else if (Choose == 3) {
+                                        settings.cls();
+                                        System.out.println("You have selected | View all categories");
+                                        settings.vievRounds();
+        
+                                    } else if (Choose == 4) {
+                                        settings.cls();
+                                        System.out.println("You have selected | View selected category\n----------------------");
+        
+                                        viewSelectedCategory.view(chooseCategory.selectedCategory);
+                                        System.out.println("Selected category: " + chooseCategory.selectedCategory);
         
                                     } else {
                                         settings.cls();
@@ -116,20 +146,15 @@ public class Play {
         
                                     }
                                 }
-                                while (Choose != 4);
-                                
+                                while (Choose != 5);
 
                             } else if (Choose == 2) {
                                 settings.cls();
-                                System.out.println("You have selected | View all categories");
-                                settings.vievRounds();
+                                System.out.println("You have selected | Difficulty of questions");
 
                             } else if (Choose == 3) {
                                 settings.cls();
-                                System.out.println("You have selected | view selected category\n----------------------");
-
-                                viewSelectedCategory.view(chooseCategory.selectedCategory);
-                                System.out.println("Selected category: " + chooseCategory.selectedCategory);
+                                System.out.println("You have selected | Questions");
 
                             } else {
                                 settings.cls();
@@ -138,15 +163,6 @@ public class Play {
                             }
                         }
                         while (Choose != 4);
-
-                    } else if (Choose == 4) {
-                        settings.cls();
-                        System.out.println("You have selected | Back\n----------------------");
-
-                    } else {
-                        settings.cls();
-                        System.out.println("Wrong number\n----------------------");
-
                     }
                 }
                 while (Choose != 3);

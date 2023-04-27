@@ -31,30 +31,30 @@
 |		* Obiekt liczący punkty dla każdego z graczy									 |
 |		* Określenie kto wygrał													 |
 |																		 |
-|	7. Zrób w klasie Questions:													 |
+|	7. Zrób w klasie Questions:													 |DONE
 |		* Plik cvs o nazwie "Questions"											 |DONE
 |			* Plik zapisywany w formacie "kategoria,pytanie,odpowiedź,trudność;"				 |DONE
 |																		 |
-|		* Obiekt "Questions"													 |
-|			* zapisywanie tresci z pliku cvs do trzech oddzielnych tablic "Question, Answer, Trudnosc" | 
+|		* Obiekt "Questions"													 |DONE
+|			* zapisywanie tresci z pliku cvs do trzech oddzielnych tablic "Question, Answer, Trudnosc" |DONE
 |			w obiektach  w następujący sposób:										 |DONE
-|				* Obiekt będzie miał taką nazwę jak pierwsza wartość przed przecinkiem, 		 |
-|				nazwa obiektów ma się nie powtarzać i tworzyć tylko jeżeli pierwsza wartość przed	 |
+|				* Obiekt będzie miał taką nazwę jak pierwsza wartość przed przecinkiem, 		 |DONE
+|				nazwa obiektów ma się nie powtarzać i tworzyć tylko jeżeli pierwsza wartość przed	 |DONE
 |				przecinkiem będzie się różniła od poprzedniej nazwy utworzonego obiektu. 		 |DONE
 |																		 |
-|				* w Każdym obiekcie będą utworzone 3 następujące tablice:					 |
-|					1. Tablica Question: zapisywana jest druga wartość do przecinka 			 |
+|				* w Każdym obiekcie będą utworzone 3 następujące tablice:					 |DONE
+|					1. Tablica Question: zapisywana jest druga wartość do przecinka 			 |DONE
 | 					przed znakiem ";".										 |DONE
 |																		 |
-|					2. Do tablicy Answer: zapisywana jest trzecia wartość do przecinka		 |
+|					2. Do tablicy Answer: zapisywana jest trzecia wartość do przecinka		 |DONE
 |					przed znakiem ";".										 |DONE
 |																		 |
 |					3. Do tablicy Trudnosc: zapisywana jest wartość od przecinka do znaku ";".	 |DONE
 |																		 |
-|		* Obiekt "Draw"														 |
-|			* Losowanie kategorii												 |
-|			* Losowanie trudności pytań odpowiadającej kategorii							 |
-|			* Losowanie pytania do odpowiadającej trudności kategorii						 |
+|		* Obiekt "Draw"														 |DONE
+|			* Losowanie kategorii												 |DONE
+|			* Losowanie trudności pytań odpowiadającej kategorii							 |DONE
+|			* Losowanie pytania do odpowiadającej trudności kategorii						 |DONE
 |																		 |
 |		* Obiekt "Answer_of_Player"												 |
 |			* Pobiera odpowiedź na wylosowane pytanie od użytkownika						 |
