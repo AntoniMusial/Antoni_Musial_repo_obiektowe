@@ -60,4 +60,34 @@ public class Questions {
             System.out.print("\n");
         }
     }
+
+    public void displayQuestions(String difficulty) {
+        HashMap<String, Object[]> objects = viewQuestions();
+        for (String category : objects.keySet()) {
+            Object[] object = objects.get(category);
+            ArrayList<String> questions = (ArrayList<String>) object[0];
+            ArrayList<String> answers = (ArrayList<String>) object[1];
+            ArrayList<String> difficulties = (ArrayList<String>) object[2];
+    
+            System.out.println("Category | " + category + "\n");
+            for (int i = 0; i < questions.size(); i++) {
+                if (difficulties.get(i).equals(difficulty)) {  // dodajemy warunek, aby wyświetlać pytania tylko z wybranej trudności
+                    System.out.print("Question | " + questions.get(i) + "\n");
+                    System.out.print("Answer | " + answers.get(i) + "\n");
+                    System.out.print("Difficulty | " + difficulties.get(i) + "\n\n");
+                }
+            }
+            System.out.print("\n");
+        }
+    }
+    
+
+    public ArrayList<String> getCategoryNames() {
+        ArrayList<String> categoryNames = new ArrayList<>();
+        HashMap<String, Object[]> objects = viewQuestions();
+        for (String category : objects.keySet()) {
+            categoryNames.add(category);
+        }
+        return categoryNames;
+    }    
 }

@@ -51,11 +51,22 @@ public class Draw {
             System.out.println("Randomly chosen question for difficulty " + difficulty + " in category " + category + ": " + question);
         }
     }
+
+    public String randomCategory() {
+        ArrayList<String> categories = new ArrayList<>(questions.keySet());
+        int randomIndex = random.nextInt(categories.size());
+        String category = categories.get(randomIndex);
+    
+        System.out.println("Randomly chosen category: " + category);
+        return category;
+    }
+    
     
     public static void main(String[] args) {
         Draw draw = new Draw();
         String category = draw.drawCategory();
         String difficulty = draw.drawDifficultyForCategory(category);
         draw.drawQuestionForDifficultyAndCategory(category, difficulty);
+        draw.randomCategory();
     }
 }

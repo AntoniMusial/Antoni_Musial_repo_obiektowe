@@ -8,7 +8,7 @@ public class ChooseCategory extends Questions {
         HashMap<String, Object[]> objects = questions.viewQuestions();
         System.out.println("Categories");
         for (String category : objects.keySet()) {
-            System.out.println(category);
+            System.out.println("\t" + category);
         }
 
         Scanner scanner = new Scanner(System.in);
@@ -31,6 +31,6 @@ public class ChooseCategory extends Questions {
 
         ViewSelectedCategory viewSelectedCategory = new ViewSelectedCategory();
         viewSelectedCategory.view(chooseCategory.selectedCategory);
-        System.out.println("Selected category: " + chooseCategory.selectedCategory);
+        System.out.println("Selected category | " + chooseCategory.selectedCategory);
     }
 }
