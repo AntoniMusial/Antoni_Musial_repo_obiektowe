@@ -14,21 +14,20 @@ public class Play {
         ViewQuestionsFromSelectedCategory viewQuestionsFromSelectedCategory = new ViewQuestionsFromSelectedCategory();
         ViewSelectedCategory viewSelectedCategory = new ViewSelectedCategory();
         Draw draw = new Draw();
-        ChooseDifficultyOfQuestions chooseDifficultyOfQuestions = new ChooseDifficultyOfQuestions();
+        ChooseDifficultyOfQuestions chooseDifficultyOfQuestions = new ChooseDifficultyOfQuestions(settings);
         
         int Choose;
-        int Choose2;
         do {
             System.out.print("1 - Play\n2 - Settings\n3 - Help\n4 - Exit\n----------------------\nSelect number | ");
-            Choose2 = sc.nextInt();
+            Choose = sc.nextInt();
 
-            if (Choose2 == 1) { // Play
+            if (Choose == 1) { // Play
                 settings.cls();
                 System.out.println("You have selected | Play\n----------------------");
 
                 questions.displayQuestions();
                 
-            } else if (Choose2 == 2) { // Settings
+            } else if (Choose == 2) { // Settings
                 settings.cls();
                 System.out.println("You have selected | Settings\n----------------------");
 
@@ -63,6 +62,7 @@ public class Play {
                             }
                         }
                         while (Choose != 3);
+                        Choose = 0;
                         
                     } else if (Choose == 2) {
                         settings.cls();
@@ -91,6 +91,7 @@ public class Play {
                             }
                         }
                         while (Choose != 3);
+                        Choose = 0;
 
                     } else if (Choose == 3) {
                         settings.cls();
@@ -137,6 +138,7 @@ public class Play {
                                             }
                                         }
                                         while (Choose != 3);
+                                        Choose = 0;
         
                                     } else if (Choose == 2) {
                                         settings.cls();
@@ -162,13 +164,14 @@ public class Play {
                                     }
                                 }
                                 while (Choose != 4);
+                                Choose = 0;
 
                             } else if (Choose == 2) {
                                 settings.cls();
                                 System.out.println("You have selected | Difficulty of questions");
 
                                 do {
-                                    System.out.print("1 - Set difficulty of questions\n2 - Set random difficulty of questions\n3 - Set increases difficulty\n4 - Back\n----------------------\nSelect number | ");
+                                    System.out.print("1 - Set difficulty of questions\n2 - Set random difficulty of questions\n3 - Set increases difficulty (Only if you set number of rounds to minimum 3) [Recommended]\n4 - Back\n----------------------\nSelect number | ");
                                     Choose = sc.nextInt();
 
                                     if (Choose == 1) {
@@ -187,7 +190,16 @@ public class Play {
                                     } else if (Choose == 3) {
                                         settings.cls();
                                         System.out.println("You have selected | Set increases difficulty");
-                                        
+
+                                        Integer NumberOfRounds = settings.getNumberOfRounds();
+                                        if (NumberOfRounds >= 3) {
+                                            chooseDifficultyOfQuestions.setIncreasedDifficulty();
+
+                                        } else {
+                                            System.out.println("Set number of rounds to 3 or bigger\nYour current number of rounds | " + NumberOfRounds);
+
+                                        }
+
 
                                     } else {
                                         settings.cls();
@@ -196,6 +208,7 @@ public class Play {
                                     }
                                 }
                                 while (Choose != 4);
+                                Choose = 0;
 
                             } else if (Choose == 3) {
                                 settings.cls();
@@ -215,14 +228,16 @@ public class Play {
                             }
                         }
                         while (Choose != 4);
+                        Choose = 0;
                     }
                 }
                 while (Choose != 4);
+                Choose = 0;
 
-            } else if (Choose2 == 3) { // Help
+            } else if (Choose == 3) { // Help
                 help.instruction();
 
-            } else if (Choose2 == 4) { // Exit
+            } else if (Choose == 4) { // Exit
                 settings.cls();
                 System.out.println("You have selected | Exit\n\nShutting down...");
 
@@ -232,6 +247,7 @@ public class Play {
 
             }
         }
-        while (Choose2 != 4);
+        while (Choose != 4);
+        Choose = 0;
     }
 }

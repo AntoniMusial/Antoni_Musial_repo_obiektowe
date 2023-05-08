@@ -1,10 +1,18 @@
 import java.util.Scanner;
 
 public class Settings {
-    int NumberOfPlayers;
-    String[] PlayersName;
-    int NumberOfRounds;
+    private int NumberOfPlayers;
+    private String[] PlayersName;
+    private int NumberOfRounds;
     int i;
+
+    public int getNumberOfRounds() {
+        return NumberOfRounds;
+    }
+
+    public void setNumberOfRounds(int numberOfRounds) {
+        NumberOfRounds = numberOfRounds;
+    }
 
     public void cls() {
         System.out.print("\033[H\033[2J");  
@@ -55,6 +63,7 @@ public class Settings {
                 System.out.println("Maximum number of rounds is 4. Please try again.\n----------------------");
             }
         } while (NumberOfRounds > 4);
+        setNumberOfRounds(NumberOfRounds);
 
         System.out.println("----------------------\nNumber of rounds | " + NumberOfRounds + "\n----------------------");
     }

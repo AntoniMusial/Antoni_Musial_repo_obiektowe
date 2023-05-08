@@ -4,7 +4,12 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class ChooseDifficultyOfQuestions extends Questions {
+    Settings settings;
     private Integer DifficultyOfQuestions;
+
+    public ChooseDifficultyOfQuestions(Settings settings) {
+        this.settings = settings;
+    }
 
     public Integer getDifficultyOfQuestions() {
         return DifficultyOfQuestions;
@@ -23,6 +28,16 @@ public class ChooseDifficultyOfQuestions extends Questions {
     public void randomizeDifficulty() {
         Random rand = new Random();
         this.DifficultyOfQuestions = rand.nextInt(3) + 1; // losuje od 1 do 3
+    }
+
+    public void setIncreasedDifficulty() {
+        Integer NumberOfRounds = settings.getNumberOfRounds();
+        System.out.println(NumberOfRounds);
+
+        if (NumberOfRounds == 3) {
+            
+        }
+
     }
 
     @Override
