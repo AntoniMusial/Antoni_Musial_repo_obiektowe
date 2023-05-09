@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class ChooseCategory extends Questions {
     public String selectedCategory;
+    
     public void choose() {
         Questions questions = new Questions();
         HashMap<String, Object[]> objects = questions.viewQuestions();

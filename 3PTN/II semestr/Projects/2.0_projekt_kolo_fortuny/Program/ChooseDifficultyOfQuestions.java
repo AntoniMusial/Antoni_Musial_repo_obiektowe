@@ -5,19 +5,12 @@ import java.util.Random;
 
 public class ChooseDifficultyOfQuestions extends Questions {
     Settings settings;
+    Play play = new Play();
     private Integer DifficultyOfQuestions;
 
-    public ChooseDifficultyOfQuestions(Settings settings) {
-        this.settings = settings;
-    }
-
-    public Integer getDifficultyOfQuestions() {
-        return DifficultyOfQuestions;
-    }
-
-    public void setDifficultyOfQuestions(Integer difficultyOfQuestions) {
-        DifficultyOfQuestions = difficultyOfQuestions;
-    }
+    public ChooseDifficultyOfQuestions(Settings settings) { this.settings = settings; }
+    public Integer getDifficultyOfQuestions() { return DifficultyOfQuestions; }
+    public void setDifficultyOfQuestions(Integer difficultyOfQuestions) { DifficultyOfQuestions = difficultyOfQuestions; }
 
     public void chooseDifficulty() {
         Scanner scanner = new Scanner(System.in);
@@ -32,12 +25,21 @@ public class ChooseDifficultyOfQuestions extends Questions {
 
     public void setIncreasedDifficulty() {
         Integer NumberOfRounds = settings.getNumberOfRounds();
+        Integer CurrentRound = play.getCurrentRound();
         System.out.println(NumberOfRounds);
 
         if (NumberOfRounds == 3) {
-            
-        }
+            if (CurrentRound == 1) { this.DifficultyOfQuestions = 1; }
+            if (CurrentRound == 2) { this.DifficultyOfQuestions = 2; }
+            if (CurrentRound == 3) { this.DifficultyOfQuestions = 3; }
 
+        } else if (NumberOfRounds == 4) {
+            if (CurrentRound == 1) { this.DifficultyOfQuestions = 1; }
+            if (CurrentRound == 2) { this.DifficultyOfQuestions = 2; }
+            if (CurrentRound == 3) { this.DifficultyOfQuestions = 3; }
+            if (CurrentRound == 4) { this.DifficultyOfQuestions = 3; }
+
+        }
     }
 
     @Override

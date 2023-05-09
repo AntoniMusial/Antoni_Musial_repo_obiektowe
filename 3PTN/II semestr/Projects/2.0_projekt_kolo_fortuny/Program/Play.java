@@ -3,10 +3,18 @@ import java.util.Scanner;
 
 public class Play {
     private static Integer difficulty;
+    private static Integer NumberOfRounds;
+    private static Boolean rngCategory;
+    private static Integer Choose;
+    private static Integer NumberOfPlayers;
+    private static String[] PlayersName;
+    private static Integer CurrentRound = 1;
+
+    public static Integer getCurrentRound() { return CurrentRound; }
+    public static void setCurrentRound(Integer currentRound) { CurrentRound = currentRound; }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         Help help = new Help();
         Settings settings = new Settings();
         Questions questions = new Questions();
@@ -15,8 +23,7 @@ public class Play {
         ViewSelectedCategory viewSelectedCategory = new ViewSelectedCategory();
         Draw draw = new Draw();
         ChooseDifficultyOfQuestions chooseDifficultyOfQuestions = new ChooseDifficultyOfQuestions(settings);
-        
-        int Choose;
+
         do {
             System.out.print("1 - Play\n2 - Settings\n3 - Help\n4 - Exit\n----------------------\nSelect number | ");
             Choose = sc.nextInt();
@@ -25,7 +32,30 @@ public class Play {
                 settings.cls();
                 System.out.println("You have selected | Play\n----------------------");
 
-                questions.displayQuestions();
+                difficulty = chooseDifficultyOfQuestions.getDifficultyOfQuestions();
+                NumberOfRounds = settings.getNumberOfRounds();
+                NumberOfPlayers = settings.getNumberOfPlayers();
+                PlayersName = settings.getPlayersName();
+
+                System.out.println("Checking your settings...\n");
+                if (NumberOfPlayers != 0) { System.out.println("Number of players | Set"); }
+                else { System.out.println("Number of players | Not set"); }
+                if (PlayersName != null) { System.out.println("Players' name | Set"); }
+                else { System.out.println("Players' name | Not set"); }
+                if (NumberOfRounds != 0) { System.out.println("Number of rounds | Set"); }
+                else { System.out.println("Number of rounds | Not set"); }
+                if (difficulty != 0) { System.out.println("Difficulty | Set"); }
+                else { System.out.println("Difficulty | Not set"); }
+
+                if (NumberOfPlayers != 0) {
+                    if (PlayersName != null) {
+                        if (NumberOfRounds != 0) {
+                            if (difficulty != 0) {
+
+                            }
+                        }
+                    }
+                } else { System.out.println("Set numbers of players before starting game.");}
                 
             } else if (Choose == 2) { // Settings
                 settings.cls();
@@ -48,6 +78,8 @@ public class Play {
                                 System.out.println("You have selected | Set players\n----------------------");
 
                                 settings.setPlayers();
+                                PlayersName = settings.getPlayersName();
+                                NumberOfPlayers = settings.getNumberOfPlayers();
 
                             } else if (Choose == 2) {
                                 settings.cls();
@@ -60,9 +92,7 @@ public class Play {
                                 System.out.println("Wrong number\n----------------------");
 
                             }
-                        }
-                        while (Choose != 3);
-                        Choose = 0;
+                        } while (Choose != 3);  Choose = 0;
                         
                     } else if (Choose == 2) {
                         settings.cls();
@@ -77,21 +107,20 @@ public class Play {
                                 System.out.println("You have selected | Set number of rounds");
 
                                 settings.setRounds();
+                                NumberOfRounds = settings.getNumberOfRounds();
 
                             } else if (Choose == 2) {
                                 settings.cls();
                                 System.out.println("You have selected | View number of rounds");
 
-                                settings.vievRounds();
+                                settings.viewRounds();
 
                             } else {
                                 settings.cls();
                                 System.out.println("Wrong number\n----------------------");
 
                             }
-                        }
-                        while (Choose != 3);
-                        Choose = 0;
+                        } while (Choose != 3);  Choose = 0;
 
                     } else if (Choose == 3) {
                         settings.cls();
@@ -121,14 +150,14 @@ public class Play {
                                                 settings.cls();
                                                 System.out.println("You have selected | Random");
 
-                                                Boolean rngCategory = true;
+                                                rngCategory = true;
                                                 System.out.println("Now the questions in game will come from random categories.");
                 
                                             } else if (Choose == 2) {
                                                 settings.cls();
                                                 System.out.println("You have selected | Set Category");
 
-                                                Boolean rngCategory = false;
+                                                rngCategory = false;
                                                 chooseCategory.choose();
                 
                                             } else {
@@ -136,9 +165,7 @@ public class Play {
                                                 System.out.println("Wrong number\n----------------------");
                 
                                             }
-                                        }
-                                        while (Choose != 3);
-                                        Choose = 0;
+                                        } while (Choose != 3);  Choose = 0;
         
                                     } else if (Choose == 2) {
                                         settings.cls();
@@ -162,9 +189,7 @@ public class Play {
                                         System.out.println("Wrong number\n----------------------");
         
                                     }
-                                }
-                                while (Choose != 4);
-                                Choose = 0;
+                                } while (Choose != 4);  Choose = 0;
 
                             } else if (Choose == 2) {
                                 settings.cls();
@@ -186,12 +211,13 @@ public class Play {
                                         System.out.println("You have selected | Set random difficulty of questions");
 
                                         chooseDifficultyOfQuestions.randomizeDifficulty();
+                                        difficulty = chooseDifficultyOfQuestions.getDifficultyOfQuestions();
 
                                     } else if (Choose == 3) {
                                         settings.cls();
                                         System.out.println("You have selected | Set increases difficulty");
-
-                                        Integer NumberOfRounds = settings.getNumberOfRounds();
+    
+                                        NumberOfRounds = settings.getNumberOfRounds();
                                         if (NumberOfRounds >= 3) {
                                             chooseDifficultyOfQuestions.setIncreasedDifficulty();
 
@@ -206,9 +232,7 @@ public class Play {
                                         System.out.println("Wrong number\n----------------------");
 
                                     }
-                                }
-                                while (Choose != 4);
-                                Choose = 0;
+                                } while (Choose != 4);  Choose = 0;
 
                             } else if (Choose == 3) {
                                 settings.cls();
@@ -230,9 +254,7 @@ public class Play {
                         while (Choose != 4);
                         Choose = 0;
                     }
-                }
-                while (Choose != 4);
-                Choose = 0;
+                } while (Choose != 4);  Choose = 0;
 
             } else if (Choose == 3) { // Help
                 help.instruction();
@@ -246,8 +268,6 @@ public class Play {
                 System.out.println("Wrong number\n----------------------");
 
             }
-        }
-        while (Choose != 4);
-        Choose = 0;
+        } while (Choose != 4);  Choose = 0;
     }
 }
