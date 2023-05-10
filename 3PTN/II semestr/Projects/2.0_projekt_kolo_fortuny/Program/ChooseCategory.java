@@ -4,6 +4,9 @@ import java.util.Scanner;
 public class ChooseCategory extends Questions {
     public String selectedCategory;
     
+    public String getSelectedCategory() { return selectedCategory; }
+    public void setSelectedCategory(String selectedCategory) { this.selectedCategory = selectedCategory; }
+
     public void choose() {
         Questions questions = new Questions();
         HashMap<String, Object[]> objects = questions.viewQuestions();

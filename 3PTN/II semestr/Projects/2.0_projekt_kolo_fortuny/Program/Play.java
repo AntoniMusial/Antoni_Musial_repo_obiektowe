@@ -1,15 +1,18 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Locale.Category;
 
 public class Play {
     private static Integer difficulty;
     private static Integer NumberOfRounds;
-    private static Boolean rngCategory;
+    private static Boolean rngCategory = null;
     private static Integer Choose;
     private static Integer NumberOfPlayers;
     private static String[] PlayersName;
     private static Integer CurrentRound = 1;
-
+    private static String selectedCategory;
+    
+    public static Boolean getRngCategory() { return rngCategory; }
     public static Integer getCurrentRound() { return CurrentRound; }
     public static void setCurrentRound(Integer currentRound) { CurrentRound = currentRound; }
 
@@ -36,6 +39,7 @@ public class Play {
                 NumberOfRounds = settings.getNumberOfRounds();
                 NumberOfPlayers = settings.getNumberOfPlayers();
                 PlayersName = settings.getPlayersName();
+                selectedCategory = chooseCategory.getSelectedCategory();
 
                 System.out.println("Checking your settings...\n");
                 if (NumberOfPlayers != 0) { System.out.println("Number of players | Set"); }
@@ -46,16 +50,21 @@ public class Play {
                 else { System.out.println("Number of rounds | Not set"); }
                 if (difficulty != 0) { System.out.println("Difficulty | Set"); }
                 else { System.out.println("Difficulty | Not set"); }
+                if (selectedCategory != null && rngCategory != null) { System.out.println("Category | Set"); }
+                else { System.out.println("Category | Not set"); }
 
                 if (NumberOfPlayers != 0) {
                     if (PlayersName != null) {
                         if (NumberOfRounds != 0) {
                             if (difficulty != 0) {
+                                if (selectedCategory != null && rngCategory != null) {
+                                    draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
 
-                            }
-                        }
-                    }
-                } else { System.out.println("Set numbers of players before starting game.");}
+                                } else { System.out.println("Set category before starting the game.");}
+                            } else { System.out.println("Set difficulty before starting the game.");}
+                        } else { System.out.println("Set number of rounds before starting the game.");}
+                    } else { System.out.println("Set players before starting the game.");}
+                } else { System.out.println("Set numbers of players before starting the game.");}
                 
             } else if (Choose == 2) { // Settings
                 settings.cls();
@@ -159,6 +168,7 @@ public class Play {
 
                                                 rngCategory = false;
                                                 chooseCategory.choose();
+                                                selectedCategory = chooseCategory.getSelectedCategory();
                 
                                             } else {
                                                 settings.cls();
@@ -181,9 +191,15 @@ public class Play {
                                         settings.cls();
                                         System.out.println("You have selected | View selected category\n----------------------");
         
-                                        viewSelectedCategory.view(chooseCategory.selectedCategory);
-                                        System.out.println("Selected category: " + chooseCategory.selectedCategory);
-        
+                                        selectedCategory = chooseCategory.getSelectedCategory();
+                                        rngCategory = getRngCategory();
+
+                                        if (selectedCategory == null) { System.out.println("You haven't chosen any category."); } 
+                                        else if (rngCategory = false && selectedCategory != null) {
+                                            viewSelectedCategory.view(chooseCategory.selectedCategory);
+                                            System.out.println("Selected category: " + chooseCategory.selectedCategory);
+
+                                        } else if (rngCategory = true) { System.out.println("You chose a random category, if we showed it to you it wouldn't be random!"); }
                                     } else {
                                         settings.cls();
                                         System.out.println("Wrong number\n----------------------");

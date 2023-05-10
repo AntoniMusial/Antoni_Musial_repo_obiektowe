@@ -6,7 +6,7 @@ import java.util.Random;
 public class ChooseDifficultyOfQuestions extends Questions {
     Settings settings;
     Play play = new Play();
-    private Integer DifficultyOfQuestions;
+    private Integer DifficultyOfQuestions = 0;
 
     public ChooseDifficultyOfQuestions(Settings settings) { this.settings = settings; }
     public Integer getDifficultyOfQuestions() { return DifficultyOfQuestions; }

@@ -21,17 +21,17 @@ public class Draw {
         return category;
     }
     
-    public String drawDifficultyForCategory(String category) {
+    public Integer drawDifficultyForCategory(String category) {
         Object[] object = questions.get(category);
-        ArrayList<String> difficulties = (ArrayList<String>) object[2];
+        ArrayList<Integer> difficulties = (ArrayList<Integer>) object[2];
         int randomIndex = random.nextInt(difficulties.size());
-        String difficulty = difficulties.get(randomIndex);
+        Integer difficulty = difficulties.get(randomIndex);
     
         System.out.println("Randomly chosen difficulty for category " + category + ": " + difficulty);
         return difficulty;
     }
     
-    public void drawQuestionForDifficultyAndCategory(String category, String difficulty) {
+    public void drawQuestionForDifficultyAndCategory(String category, Integer difficulty) {
         Object[] object = questions.get(category);
         ArrayList<String> questions = (ArrayList<String>) object[0];
         ArrayList<String> difficulties = (ArrayList<String>) object[2];
@@ -65,7 +65,7 @@ public class Draw {
     public static void main(String[] args) {
         Draw draw = new Draw();
         String category = draw.drawCategory();
-        String difficulty = draw.drawDifficultyForCategory(category);
+        Integer difficulty = draw.drawDifficultyForCategory(category);
         draw.drawQuestionForDifficultyAndCategory(category, difficulty);
         draw.randomCategory();
     }
