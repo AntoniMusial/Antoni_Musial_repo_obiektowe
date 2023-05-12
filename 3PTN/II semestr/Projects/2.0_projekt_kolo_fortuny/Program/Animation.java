@@ -1,4 +1,4 @@
-import javafx.animation.Animation;
+/*import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
@@ -49,3 +49,4 @@ public class Animation extends Application {
         launch(args);
     }
 }
+*/

@@ -2,10 +2,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class ChooseCategory extends Questions {
-    public String selectedCategory;
+    private String selectedCategory = "";
     
     public String getSelectedCategory() { return selectedCategory; }
-    public void setSelectedCategory(String selectedCategory) { this.selectedCategory = selectedCategory; }
+    public String setSelectedCategory(String selectedCategory) { return this.selectedCategory = selectedCategory; }
 
     public void choose() {
         Questions questions = new Questions();
@@ -24,6 +24,8 @@ public class ChooseCategory extends Questions {
             System.out.print("Please choose another category | ");
             selectedCategory = scanner.nextLine();
         }
+
+        setSelectedCategory(selectedCategory);
     }
 
     public static void main(String[] args) {

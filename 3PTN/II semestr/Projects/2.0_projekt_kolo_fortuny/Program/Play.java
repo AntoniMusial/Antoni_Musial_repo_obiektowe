@@ -3,16 +3,18 @@ import java.util.Scanner;
 import java.util.Locale.Category;
 
 public class Play {
-    private static Integer difficulty;
+    private static Integer difficulty = 0;
     private static Integer NumberOfRounds;
     private static Boolean rngCategory = null;
     private static Integer Choose;
     private static Integer NumberOfPlayers;
     private static String[] PlayersName;
     private static Integer CurrentRound = 1;
-    private static String selectedCategory;
+    private static String selectedCategory = "";
     
     public static Boolean getRngCategory() { return rngCategory; }
+    public static void setRngCategory(Boolean rngCategory) { Play.rngCategory = rngCategory; }
+
     public static Integer getCurrentRound() { return CurrentRound; }
     public static void setCurrentRound(Integer currentRound) { CurrentRound = currentRound; }
 
@@ -160,6 +162,10 @@ public class Play {
                                                 System.out.println("You have selected | Random");
 
                                                 rngCategory = true;
+                                                selectedCategory = "";
+                                                selectedCategory = chooseCategory.setSelectedCategory(selectedCategory);
+                                                setRngCategory(rngCategory);
+
                                                 System.out.println("Now the questions in game will come from random categories.");
                 
                                             } else if (Choose == 2) {
@@ -168,7 +174,7 @@ public class Play {
 
                                                 rngCategory = false;
                                                 chooseCategory.choose();
-                                                selectedCategory = chooseCategory.getSelectedCategory();
+                                                setRngCategory(rngCategory);
                 
                                             } else {
                                                 settings.cls();
@@ -194,12 +200,9 @@ public class Play {
                                         selectedCategory = chooseCategory.getSelectedCategory();
                                         rngCategory = getRngCategory();
 
-                                        if (selectedCategory == null) { System.out.println("You haven't chosen any category."); } 
-                                        else if (rngCategory = false && selectedCategory != null) {
-                                            viewSelectedCategory.view(chooseCategory.selectedCategory);
-                                            System.out.println("Selected category: " + chooseCategory.selectedCategory);
-
-                                        } else if (rngCategory = true) { System.out.println("You chose a random category, if we showed it to you it wouldn't be random!"); }
+                                        if (rngCategory == null) { System.out.println("You haven't chosen any category."); }
+                                        else if (rngCategory == true) { System.out.println("You chose a random category, if we showed it to you it wouldn't be random!"); }
+                                        else { System.out.println("Selected category | " + selectedCategory); } 
                                     } else {
                                         settings.cls();
                                         System.out.println("Wrong number\n----------------------");
@@ -254,11 +257,11 @@ public class Play {
                                 settings.cls();
                                 System.out.println("You have selected | Display questions");
 
-                                if (difficulty != null) {
+                                if (difficulty != 0) {
                                     chooseDifficultyOfQuestions.displayQuestions(difficulty.toString());
 
                                 } else {
-                                    chooseDifficultyOfQuestions.displayQuestions();
+                                    questions.displayQuestions();
                                 }
 
                             } else {
