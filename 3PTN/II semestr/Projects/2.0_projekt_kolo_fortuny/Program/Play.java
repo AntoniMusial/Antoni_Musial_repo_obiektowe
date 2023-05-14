@@ -12,6 +12,9 @@ public class Play {
     private static Integer CurrentRound = 1;
     private static String selectedCategory = "";
     
+    public static String getSelectedCategory() { return selectedCategory; }
+    public static void setSelectedCategory(String selectedCategory) { Play.selectedCategory = selectedCategory; }
+
     public static Boolean getRngCategory() { return rngCategory; }
     public static void setRngCategory(Boolean rngCategory) { Play.rngCategory = rngCategory; }
 
@@ -59,7 +62,7 @@ public class Play {
                     if (PlayersName != null) {
                         if (NumberOfRounds != 0) {
                             if (difficulty != 0) {
-                                if (selectedCategory != null && rngCategory != null) {
+                                if (selectedCategory != "" && rngCategory != null) {
                                     draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
 
                                 } else { System.out.println("Set category before starting the game.");}
