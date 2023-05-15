@@ -11,6 +11,7 @@ public class Play {
     private static String[] PlayersName;
     private static Integer CurrentRound = 1;
     private static String selectedCategory = "";
+    private static String PlayerAnswer = "";
     
     public static String getSelectedCategory() { return selectedCategory; }
     public static void setSelectedCategory(String selectedCategory) { Play.selectedCategory = selectedCategory; }
@@ -20,6 +21,15 @@ public class Play {
 
     public static Integer getCurrentRound() { return CurrentRound; }
     public static void setCurrentRound(Integer currentRound) { CurrentRound = currentRound; }
+
+    public static Integer getNumberOfRounds() { return NumberOfRounds; }
+    public static void setNumberOfRounds(Integer numberOfRounds) { NumberOfRounds = numberOfRounds; }
+
+    public static Integer getNumberOfPlayers() { return NumberOfPlayers; }
+    public static void setNumberOfPlayers(Integer numberOfPlayers) { NumberOfPlayers = numberOfPlayers; }
+    
+    public static String[] getPlayersName() { return PlayersName; }
+    public static void setPlayersName(String[] playersName) { PlayersName = playersName; }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -63,7 +73,8 @@ public class Play {
                         if (NumberOfRounds != 0) {
                             if (difficulty != 0) {
                                 if (selectedCategory != "" && rngCategory != null) {
-                                    draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
+                                    String question = draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
+                                    draw.answerPlayer(selectedCategory, question);
 
                                 } else { System.out.println("Set category before starting the game.");}
                             } else { System.out.println("Set difficulty before starting the game.");}
