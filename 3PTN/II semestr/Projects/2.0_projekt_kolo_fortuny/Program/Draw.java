@@ -79,66 +79,60 @@ public class Draw {
         NumberOfRounds = Play.getNumberOfRounds();
         NumberOfPlayers = Play.getNumberOfPlayers();
         PlayersName = Play.getPlayersName();
-    
-        CurrentRound = 0; 
-        do {
-            CurrentRound ++;
-            System.out.println("Current round | " + CurrentRound);
 
-            // Pobierz odpowiedzi dla danej kategorii
-            Object[] object = questions.get(category);
-            ArrayList<String> answers = (ArrayList<String>) object[1];
-            int questionIndex = ((ArrayList<String>) object[0]).indexOf(question);
-            String answer = answers.get(questionIndex);
-        
-            // Iteruj przez odpowiedź i ocenzuruj spółgłoskami
-            for (int i = 0; i < answer.length(); i++) {
-                char c = answer.charAt(i);
-                if (Character.isLetter(c) && isConsonant(c)) {
-                    if (!consonantCount.containsKey(c)) {
-                        censoredAnswer.append("*");
-                    } else {
-                        censoredAnswer.append(c);
-                    }
-                    consonantCount.put(c, consonantCount.getOrDefault(c, 0) + 1);
+        // Pobierz odpowiedzi dla danej kategorii
+        Object[] object = questions.get(category);
+        ArrayList<String> answers = (ArrayList<String>) object[1];
+        int questionIndex = ((ArrayList<String>) object[0]).indexOf(question);
+        String answer = answers.get(questionIndex);
+    
+        // Iteruj przez odpowiedź i ocenzuruj spółgłoskami
+        for (int i = 0; i < answer.length(); i++) {
+            char c = answer.charAt(i);
+            if (Character.isLetter(c) && isConsonant(c)) {
+                if (!consonantCount.containsKey(c)) {
+                    censoredAnswer.append("*");
                 } else {
                     censoredAnswer.append(c);
                 }
+                consonantCount.put(c, consonantCount.getOrDefault(c, 0) + 1);
+            } else {
+                censoredAnswer.append(c);
             }
+        }
         
-            // Wyświetl kategorię, trudność pytania, pytanie i ocenzurowaną odpowiedź
-            System.out.println("Category | " + category);
-            System.out.println("Question | " + question);
-            System.out.println("Censored Answer | " + censoredAnswer.toString());
+        // Wyświetl kategorię, trudność pytania, pytanie i ocenzurowaną odpowiedź
+        System.out.println("Category | " + category);
+        System.out.println("Question | " + question);
+        System.out.println("Censored Answer | " + censoredAnswer.toString());
         
-            // Pobierz odpowiedź od użytkownika w pętli dopóki nie będzie poprawna
-            String userAnswer;
-            do {
-                
-                userAnswer = scanner.nextLine();
-        
-                if (userAnswer.equalsIgnoreCase(answer)) {
-                    System.out.println("Congratulations! You answered correctly.");
-                    return "Correct";
+        // Pobierz odpowiedź od użytkownika w pętli dopóki nie będzie poprawna
+        String userAnswer;
+        do {
+            
+            userAnswer = scanner.nextLine();
+    
+            if (userAnswer.equalsIgnoreCase(answer)) {
+                System.out.println("Congratulations! You answered correctly.");
+                return "Correct";
 
-                } else if (userAnswer.length() == 1 && isConsonant(userAnswer.charAt(0))) {
-                    // Jeżeli użytkownik podał spółgłoskę, sprawdź czy występuje w ocenzurowanej odpowiedzi
-                    char consonant = Character.toLowerCase(userAnswer.charAt(0));
-                    if (consonantCount.containsKey(consonant)) {
-                        // Usuń cenzurę dla podanej spółgłoski
-                        int index = censoredAnswer.indexOf("*");
+            } else if (userAnswer.length() == 1 && isConsonant(userAnswer.charAt(0))) {
+                // Jeżeli użytkownik podał spółgłoskę, sprawdź czy występuje w ocenzurowanej odpowiedzi
+                char consonant = Character.toLowerCase(userAnswer.charAt(0));
+                if (consonantCount.containsKey(consonant)) {
+                    // Usuń cenzurę dla podanej spółgłoski
+                    int index = censoredAnswer.indexOf("*");
 
-                        while (index != -1) {
-                            if (Character.toLowerCase(answer.charAt(index)) == consonant) { censoredAnswer.setCharAt(index, answer.charAt(index)); }
-                            index = censoredAnswer.indexOf("*", index + 1);
+                    while (index != -1) {
+                        if (Character.toLowerCase(answer.charAt(index)) == consonant) { censoredAnswer.setCharAt(index, answer.charAt(index)); }
+                        index = censoredAnswer.indexOf("*", index + 1);
 
-                        }
-                        System.out.println("Censored Answer (after revealing '" + consonant + "'): " + censoredAnswer.toString());
+                    }
+                    System.out.println("Censored Answer (after revealing '" + consonant + "'): " + censoredAnswer.toString());
 
-                    } else { System.out.println("The consonant does not exist in the censored answer."); }
-                } else { System.out.println("Sorry, your answer is incorrect."); }
-            } while (true);
-        } while (CurrentRound != NumberOfRounds);
+                } else { System.out.println("The consonant does not exist in the censored answer."); }
+            } else { System.out.println("Sorry, your answer is incorrect."); }
+        } while (true);
     }
        
     

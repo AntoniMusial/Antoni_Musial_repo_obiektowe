@@ -9,9 +9,8 @@ public class Play {
     private static Integer Choose;
     private static Integer NumberOfPlayers;
     private static String[] PlayersName;
-    private static Integer CurrentRound = 1;
+    private static Integer CurrentRound = 0;
     private static String selectedCategory = "";
-    private static String PlayerAnswer = "";
     
     public static String getSelectedCategory() { return selectedCategory; }
     public static void setSelectedCategory(String selectedCategory) { Play.selectedCategory = selectedCategory; }
@@ -74,7 +73,13 @@ public class Play {
                             if (difficulty != 0) {
                                 if (selectedCategory != "" && rngCategory != null) {
                                     String question = draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
-                                    draw.answerPlayer(selectedCategory, question);
+
+                                    do {
+                                        System.out.println("Current round | " + CurrentRound);
+                                        draw.answerPlayer(selectedCategory, question);
+
+                                        CurrentRound ++;
+                                    } while (CurrentRound != NumberOfRounds);
 
                                 } else { System.out.println("Set category before starting the game.");}
                             } else { System.out.println("Set difficulty before starting the game.");}
