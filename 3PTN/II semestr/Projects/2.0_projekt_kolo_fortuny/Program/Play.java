@@ -29,6 +29,9 @@ public class Play {
     
     public static String[] getPlayersName() { return PlayersName; }
     public static void setPlayersName(String[] playersName) { PlayersName = playersName; }
+    
+    public static Integer getDifficulty() { return difficulty; }
+    public static void setDifficulty(Integer difficulty) { Play.difficulty = difficulty; }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -64,7 +67,7 @@ public class Play {
                 else { System.out.println("Number of rounds | Not set"); }
                 if (difficulty != 0) { System.out.println("Difficulty | Set"); }
                 else { System.out.println("Difficulty | Not set"); }
-                if (selectedCategory != null && rngCategory != null) { System.out.println("Category | Set"); }
+                if (selectedCategory != "" && rngCategory != null) { System.out.println("Category | Set"); }
                 else { System.out.println("Category | Not set"); }
 
                 if (NumberOfPlayers != 0) {
@@ -72,14 +75,13 @@ public class Play {
                         if (NumberOfRounds != 0) {
                             if (difficulty != 0) {
                                 if (selectedCategory != "" && rngCategory != null) {
-                                    String question = draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
-
                                     do {
-                                        System.out.println("Current round | " + CurrentRound);
-                                        draw.answerPlayer(selectedCategory, question);
-
                                         CurrentRound ++;
+                                        System.out.println("Current round | " + CurrentRound + "/" + NumberOfRounds);
+                                        draw.answerPlayer(selectedCategory, NumberOfPlayers);
+
                                     } while (CurrentRound != NumberOfRounds);
+                                    CurrentRound = 0;
 
                                 } else { System.out.println("Set category before starting the game.");}
                             } else { System.out.println("Set difficulty before starting the game.");}

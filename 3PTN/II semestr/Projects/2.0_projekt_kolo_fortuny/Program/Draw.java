@@ -7,16 +7,19 @@ public class Draw {
     private HashMap<String, Object[]> questions;
     private Random random;
     private Scanner scanner;
-    private static Integer NumberOfRounds;
+    private static Integer NumberOfRounds = 4;
     private static Integer NumberOfPlayers;
-    private static String[] PlayersName;
-    private static Integer CurrentRound = 1;
+    private static String[] PlayersName = {"andrew", "dupa", "spierdalaj"};
+    private static Integer CurrentRound = 0;
+    private static String userAnswer;
+    private ArrayList<String> drawnQuestions;
     
     public Draw() {
         Questions q = new Questions();
         questions = q.viewQuestions();
         random = new Random();
         scanner = new Scanner(System.in);
+        drawnQuestions = new ArrayList<>();
     }
     
     public String drawCategory() {
@@ -50,7 +53,10 @@ public class Draw {
     
         for (int i = 0; i < difficulties.size(); i++) {
             if (Integer.parseInt(difficulties.get(i)) == difficulty) {
-                filteredQuestions.add(questionsList.get(i));
+                String currentQuestion = questionsList.get(i);
+                if (!drawnQuestions.contains(currentQuestion)) {
+                    filteredQuestions.add(currentQuestion);
+                }
             }
         }
     
@@ -59,6 +65,7 @@ public class Draw {
         } else {
             int randomIndex = random.nextInt(filteredQuestions.size());
             question = filteredQuestions.get(randomIndex);
+            drawnQuestions.add(question);
         }
     
         return question;
@@ -73,17 +80,23 @@ public class Draw {
         return category;
     }
     
-    public String answerPlayer(String category, String question) {
+    public String answerPlayer(String category, String question, Integer numberOfPlayers) {
         HashMap<Character, Integer> consonantCount = new HashMap<>();
         StringBuilder censoredAnswer = new StringBuilder();
-        NumberOfRounds = Play.getNumberOfRounds();
-        NumberOfPlayers = Play.getNumberOfPlayers();
-        PlayersName = Play.getPlayersName();
-
+        numberOfPlayers = 3;
+    
         // Pobierz odpowiedzi dla danej kategorii
         Object[] object = questions.get(category);
         ArrayList<String> answers = (ArrayList<String>) object[1];
+        
+        // Znajdź indeks pytania w liście pytań
         int questionIndex = ((ArrayList<String>) object[0]).indexOf(question);
+        if (questionIndex == -1) {
+            System.out.println("Question not found.");
+            return null;
+        }
+        
+        // Pobierz odpowiedź dla pytania
         String answer = answers.get(questionIndex);
     
         // Iteruj przez odpowiedź i ocenzuruj spółgłoskami
@@ -101,41 +114,45 @@ public class Draw {
             }
         }
         
-        // Wyświetl kategorię, trudność pytania, pytanie i ocenzurowaną odpowiedź
-        System.out.println("Category | " + category);
-        System.out.println("Question | " + question);
-        System.out.println("Censored Answer | " + censoredAnswer.toString());
-        
-        // Pobierz odpowiedź od użytkownika w pętli dopóki nie będzie poprawna
-        String userAnswer;
         do {
+            // Wyświetl kategorię, trudność pytania, pytanie i ocenzurowaną odpowiedź
+            System.out.println("Category | " + category);
+            System.out.println("Question | " + question);
+            System.out.println("Censored Answer | " + censoredAnswer.toString());
             
-            userAnswer = scanner.nextLine();
-    
-            if (userAnswer.equalsIgnoreCase(answer)) {
-                System.out.println("Congratulations! You answered correctly.");
-                return "Correct";
-
-            } else if (userAnswer.length() == 1 && isConsonant(userAnswer.charAt(0))) {
-                // Jeżeli użytkownik podał spółgłoskę, sprawdź czy występuje w ocenzurowanej odpowiedzi
-                char consonant = Character.toLowerCase(userAnswer.charAt(0));
-                if (consonantCount.containsKey(consonant)) {
-                    // Usuń cenzurę dla podanej spółgłoski
-                    int index = censoredAnswer.indexOf("*");
-
-                    while (index != -1) {
-                        if (Character.toLowerCase(answer.charAt(index)) == consonant) { censoredAnswer.setCharAt(index, answer.charAt(index)); }
-                        index = censoredAnswer.indexOf("*", index + 1);
-
+            // Pobierz odpowiedź od użytkownika w pętli dopóki nie będzie poprawna
+            for (int i = 0; i < numberOfPlayers; i++) {
+                System.out.println("Your turn " + PlayersName[i]);
+                userAnswer = scanner.nextLine();
+                
+                if (userAnswer.equalsIgnoreCase(answer)) {
+                    System.out.println("Congratulations! You answered correctly.");
+                    return "Correct";
+                } else if (userAnswer.length() == 1 && isConsonant(userAnswer.charAt(0))) {
+                    // Jeżeli użytkownik podał spółgłoskę, sprawdź czy występuje w ocenzurowanej odpowiedzi
+                    char consonant = Character.toLowerCase(userAnswer.charAt(0));
+                    if (consonantCount.containsKey(consonant)) {
+                        // Usuń cenzurę dla podanej spółgłoski
+                        int index = censoredAnswer.indexOf("*");
+                        while (index != -1) {
+                            if (Character.toLowerCase(answer.charAt(index)) == consonant) {
+                                censoredAnswer.setCharAt(index, answer.charAt(index));
+                            }
+                            index = censoredAnswer.indexOf("*", index + 1);
+                        }
+                        System.out.println("Censored Answer (after revealing | " + consonant + ") | " + censoredAnswer.toString());
+                    } else {
+                        System.out.println("The consonant does not exist in the censored answer.");
                     }
-                    System.out.println("Censored Answer (after revealing '" + consonant + "'): " + censoredAnswer.toString());
-
-                } else { System.out.println("The consonant does not exist in the censored answer."); }
-            } else { System.out.println("Sorry, your answer is incorrect."); }
-        } while (true);
-    }
+                } else {
+                    System.out.println("Sorry, your answer is incorrect.");
+                }
+            }
+        } while (!censoredAnswer.toString().equals(answer));
+        
+        return "Round is Over";
+    }    
        
-    
     // Metoda pomocnicza do sprawdzania, czy znak jest spółgłoską
     private boolean isConsonant(char c) {
         c = Character.toLowerCase(c);
@@ -145,9 +162,14 @@ public class Draw {
     public static void main(String[] args) {
         Draw draw = new Draw();
         String selectedCategory = "Robotics";
-        Integer difficulty = draw.drawDifficultyForCategory(selectedCategory);
-        String question = draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
-        String result = draw.answerPlayer(selectedCategory, question);
-        System.out.println("Result | " + result);
+        Integer difficulty = 1;
+
+        do {
+            CurrentRound ++;
+            System.out.println("Current round | " + CurrentRound + "/" + NumberOfRounds);
+            String question = draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
+            String result = draw.answerPlayer(selectedCategory, question, NumberOfPlayers);
+            System.out.println("Result | " + result);
+        } while (CurrentRound != NumberOfRounds);
     }
 }
