@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Locale.Category;
 
@@ -11,7 +12,8 @@ public class Play {
     private static String[] PlayersName;
     private static Integer CurrentRound = 0;
     private static String selectedCategory = "";
-    
+    private static ArrayList<String> drawnQuestions;
+
     public static String getSelectedCategory() { return selectedCategory; }
     public static void setSelectedCategory(String selectedCategory) { Play.selectedCategory = selectedCategory; }
 
@@ -75,13 +77,21 @@ public class Play {
                         if (NumberOfRounds != 0) {
                             if (difficulty != 0) {
                                 if (selectedCategory != "" && rngCategory != null) {
-                                    do {
-                                        CurrentRound ++;
-                                        System.out.println("Current round | " + CurrentRound + "/" + NumberOfRounds);
-                                        draw.answerPlayer(selectedCategory, NumberOfPlayers);
+                                    Points points = new Points(PlayersName);
 
+                                    do {
+                                        CurrentRound++;
+                                        System.out.println("Current round | " + CurrentRound + "/" + NumberOfRounds);
+                                        String question = draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
+                                        String result = draw.answerPlayer(draw, selectedCategory, question, NumberOfPlayers, PlayersName, points, difficulty);
+                                        System.out.println("Result | " + result);
                                     } while (CurrentRound != NumberOfRounds);
-                                    CurrentRound = 0;
+                            
+                                    // Wyświetl końcowe punkty dla każdego gracza
+                                    HashMap<String, Integer> finalPoints = points.getPoints();
+                                    for (String playerName : PlayersName) {
+                                        System.out.println("Points of " + playerName + " | " + finalPoints.get(playerName));
+                                    }
 
                                 } else { System.out.println("Set category before starting the game.");}
                             } else { System.out.println("Set difficulty before starting the game.");}
