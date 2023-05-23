@@ -1,7 +1,14 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Points {
     private HashMap<String, Integer> points;
+    private HashMap<String, Integer> cash;
+    static Random rng = new Random();
+    private static Integer cashFromWheelOfFortune[] = {0, 1500, 250, 150, 200, 300, 500, 1000, 350, 1, 400}; // 0 - Bankrut, 1 - Stop
+    private static Integer randomIndex;
+    private static Integer randomCash;
 
     public Points(String[] players) {
         points = new HashMap<>();
@@ -52,5 +59,29 @@ public class Points {
         }
         
         points.put(playerName, currentPoints);
+    }
+
+    public static void randomMoney() {
+        randomIndex = rng.nextInt(cashFromWheelOfFortune.length);
+        randomCash = cashFromWheelOfFortune[randomIndex];
+    }
+
+    public void countCash(String playerName, boolean isConsonantGuessed, boolean isAnswerGuessed) {
+        int currentCash = cash.getOrDefault(playerName, 0);
+        int money
+        
+        // Assign cash for each correct consonant
+        if (isConsonantGuessed) {
+            
+        }
+        
+        // Assign cash for each correct answer
+        if (isAnswerGuessed) {
+            cash.put(playerName, currentCash);
+        }        
+    }
+
+    public static void main(String[] args) {
+        Points.randomMoney();
     }
 }
