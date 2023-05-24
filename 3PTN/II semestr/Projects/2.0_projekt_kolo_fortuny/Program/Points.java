@@ -67,18 +67,35 @@ public class Points {
     }
 
     public void countCash(String playerName, boolean isConsonantGuessed, boolean isAnswerGuessed) {
+        randomMoney();
         int currentCash = cash.getOrDefault(playerName, 0);
-        int money
-        
-        // Assign cash for each correct consonant
-        if (isConsonantGuessed) {
+
+        if (randomCash != 0 || randomCash != 1) {
+            System.out.println("Wheel of fortune | " + randomCash + "$");
             
+            // Assign cash for each correct consonant
+            if (isConsonantGuessed) {
+                currentCash += randomCash;
+                System.out.println(playerName + " you get | " + currentCash + "$");
+                System.out.println(playerName + " your current cash | " + currentCash + "$");
+            }
+            
+            // Assign cash for each correct answer
+            if (isAnswerGuessed) {
+                cash.put(playerName, currentCash);
+            }
+
+        } else if (randomCash == 0) {
+            System.out.println("Wheel of fortune | Bankrupt!");
+            currentCash = 0;
+            System.out.println(playerName + " your current cash | " + currentCash + "$");
+        } else if (randomCash == 1) {
+            System.out.println("Wheel of fortune | Stop!");
+        } else {
+            System.out.println("cos niedziala nw co sie odpierdala. Japierdole jebać");
         }
-        
-        // Assign cash for each correct answer
-        if (isAnswerGuessed) {
-            cash.put(playerName, currentCash);
-        }        
+
+      
     }
 
     public static void main(String[] args) {

@@ -133,6 +133,7 @@ public class Draw {
         }
     
         do {
+            // Jeżeli udzielono prawidłowej odpowiedzi
             if (winningPlayerIndex == currentPlayerIndex) {
                 // Wyświetl kategorię, trudność pytania, pytanie i ocenzurowaną odpowiedź
                 System.out.println("Category | " + category);
@@ -143,14 +144,17 @@ public class Draw {
                 System.out.println("Your turn " + playersName[winningPlayerIndex]);
                 String userAnswer = draw.getScanner().nextLine();
         
-                if (userAnswer.equalsIgnoreCase(answer)) {
+                if (userAnswer.equalsIgnoreCase(answer)) { // Trafiona odpowiedź
                     System.out.println("Congratulations! You answered correctly.");
-                    points.countPoints(playersName[winningPlayerIndex], false, true, difficulty); // Odgadnięta odpowiedź
+                    points.countPoints(playersName[winningPlayerIndex], false, true, difficulty); // Dodanie punktów
+                    points.countCash(playersName[winningPlayerIndex], false, true); // Dodanie pieniędzy
                     winningPlayerIndex = currentPlayerIndex;
                     return "Correct";
                 } else if (userAnswer.length() == 1 && isConsonant(userAnswer.charAt(0))) {
                     // Jeżeli użytkownik podał spółgłoskę, sprawdź czy występuje w ocenzurowanej odpowiedzi
                     char consonant = Character.toLowerCase(userAnswer.charAt(0));
+                    
+                    // Trafiona spółgłoska
                     if (consonantCount.containsKey(consonant)) {
                         // Usuń cenzurę dla podanej spółgłoski
                         int index = censoredAnswer.indexOf("*");
@@ -166,7 +170,8 @@ public class Draw {
                         System.out.println("The consonant does not exist in the censored answer.");
                         currentPlayerIndex = (currentPlayerIndex + 1) % numberOfPlayers; // Przejdź do kolejnego gracza
                     }
-                    points.countPoints(playersName[winningPlayerIndex], true, false, difficulty); // Trafiona spółgłoska
+                    points.countPoints(playersName[winningPlayerIndex], true, false, difficulty); // Dodanie punktów
+                    points.countCash(playersName[winningPlayerIndex], true, false); // Dodanie pieniędzy
                 } else {
                     System.out.println("Sorry, your answer is incorrect.");
                     currentPlayerIndex = (currentPlayerIndex + 1) % numberOfPlayers; // Przejdź do kolejnego gracza
@@ -182,14 +187,18 @@ public class Draw {
                 System.out.println("Your turn " + playersName[currentPlayerIndex]);
                 String userAnswer = draw.getScanner().nextLine();
                         
-                if (userAnswer.equalsIgnoreCase(answer)) {
+                if (userAnswer.equalsIgnoreCase(answer)) { // Prawidłowa odpowiedź
                     System.out.println("Congratulations! You answered correctly.");
-                    points.countPoints(playersName[currentPlayerIndex], false, true, difficulty); // Odgadnięta odpowiedź
+                    points.countPoints(playersName[currentPlayerIndex], false, true, difficulty); // Dodanie punktów
+                    points.countCash(playersName[currentPlayerIndex], false, true); // Dodanie pieniędzy
                     winningPlayerIndex = currentPlayerIndex;
                     return "Correct";
+                    
                 } else if (userAnswer.length() == 1 && isConsonant(userAnswer.charAt(0))) {
                     // Jeżeli użytkownik podał spółgłoskę, sprawdź czy występuje w ocenzurowanej odpowiedzi
                     char consonant = Character.toLowerCase(userAnswer.charAt(0));
+
+                    // Trafiona spółgłoska
                     if (consonantCount.containsKey(consonant)) {
                         // Usuń cenzurę dla podanej spółgłoski
                         int index = censoredAnswer.indexOf("*");
@@ -204,7 +213,8 @@ public class Draw {
                     } else {
                         System.out.println("The consonant does not exist in the censored answer.");
                     }
-                    points.countPoints(playersName[currentPlayerIndex], true, false, difficulty); // Trafiona spółgłoska
+                    points.countPoints(playersName[currentPlayerIndex], true, false, difficulty); // Dodanie punktów
+                    points.countCash(playersName[currentPlayerIndex], true, false); // Dodanie pieniędzy
                 } else {
                     System.out.println("Sorry, your answer is incorrect.");
                 }
