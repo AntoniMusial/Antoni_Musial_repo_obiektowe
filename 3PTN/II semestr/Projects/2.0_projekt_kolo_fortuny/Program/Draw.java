@@ -259,7 +259,17 @@ public class Draw {
         // Print the final points for each player
         HashMap<String, Integer> finalPoints = draw.points.getPoints();
         for (String playerName : PlayersName) {
-            System.out.println(playerName + " - Points: " + finalPoints.get(playerName));
+            System.out.println(playerName + " - points | " + finalPoints.get(playerName));
+        }
+
+        // Print the final cash for each player
+        HashMap<String, Integer> finalCash = draw.points.getCash();
+        for (String playerName : PlayersName) {
+            if (finalCash.get(playerName) != null) {
+                System.out.println(playerName + " - cash | " + finalCash.get(playerName) + "$");
+            } else {
+                System.out.println(playerName + " - cash | 0$");
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ public class Points {
 
     public Points(String[] players) {
         points = new HashMap<>();
+        cash = new HashMap<>();
         for (String player : players) {
             points.put(player, 0);
         }
@@ -19,6 +20,10 @@ public class Points {
 
     public HashMap<String, Integer> getPoints() {
         return points;
+    }
+
+    public HashMap<String, Integer> getCash() {
+        return cash;
     }
 
     public void countPoints(String playerName, boolean isConsonantGuessed, boolean isAnswerGuessed, int difficulty) {
@@ -67,9 +72,9 @@ public class Points {
     }
 
     public void countCash(String playerName, boolean isConsonantGuessed, boolean isAnswerGuessed) {
-        randomMoney();
         int currentCash = cash.getOrDefault(playerName, 0);
-
+        
+        randomMoney();
         if (randomCash != 0 || randomCash != 1) {
             System.out.println("Wheel of fortune | " + randomCash + "$");
             
@@ -89,13 +94,15 @@ public class Points {
             System.out.println("Wheel of fortune | Bankrupt!");
             currentCash = 0;
             System.out.println(playerName + " your current cash | " + currentCash + "$");
+            cash.remove(playerName);
         } else if (randomCash == 1) {
             System.out.println("Wheel of fortune | Stop!");
         } else {
             System.out.println("cos niedziala nw co sie odpierdala. Japierdole jebać");
         }
+        
+        cash.put(playerName, currentCash);
 
-      
     }
 
     public static void main(String[] args) {
