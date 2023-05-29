@@ -15,7 +15,11 @@ public class Draw {
     private static Integer currentPlayerIndex = 0; // Indeks aktualnego gracza
     private String userAnswer;
     private ArrayList<String> drawnQuestions;
-    private Points points;
+    public Points points;
+
+    public Points getPoints() {
+        return points;
+    }
 
     public ArrayList<String> getDrawnQuestions() {
         return drawnQuestions;
@@ -133,10 +137,13 @@ public class Draw {
         }
     
         do {
+            System.out.println("----------------------");
+
             // Jeżeli udzielono prawidłowej odpowiedzi
             if (winningPlayerIndex == currentPlayerIndex) {
                 // Wyświetl kategorię, trudność pytania, pytanie i ocenzurowaną odpowiedź
                 System.out.println("Category | " + category);
+                System.out.println("Difficulty | " + difficulty);
                 System.out.println("Question | " + question);
                 System.out.println("Censored Answer | " + censoredAnswer.toString());
         
@@ -203,28 +210,20 @@ public class Draw {
                         // Usuń cenzurę dla podanej spółgłoski
                         int index = censoredAnswer.indexOf("*");
                         while (index != -1) {
-                            if (Character.toLowerCase(answer.charAt(index)) == consonant) {
-                                censoredAnswer.setCharAt(index, answer.charAt(index));
-                            }
+                            if (Character.toLowerCase(answer.charAt(index)) == consonant) { censoredAnswer.setCharAt(index, answer.charAt(index)); }
                             index = censoredAnswer.indexOf("*", index + 1);
                         }
                         System.out.println("Correct consonant!\nCensored Answer (after revealing | " + consonant + ") | " + censoredAnswer.toString());
                         winningPlayerIndex = currentPlayerIndex;
-                    } else {
-                        System.out.println("The consonant does not exist in the censored answer.");
-                    }
+
+                    } else { System.out.println("The consonant does not exist in the censored answer."); }
                     points.countPoints(playersName[currentPlayerIndex], true, false, difficulty); // Dodanie punktów
                     points.countCash(playersName[currentPlayerIndex], true, false); // Dodanie pieniędzy
-                } else {
-                    System.out.println("Sorry, your answer is incorrect.");
-                }
+                
+                } else { System.out.println("Sorry, your answer is incorrect."); }
                         
-                if (winningPlayerIndex == currentPlayerIndex) {
-                    currentPlayerIndex = currentPlayerIndex;
-
-                } else {
-                    currentPlayerIndex = (currentPlayerIndex + 1) % numberOfPlayers; // Przejdź do kolejnego gracza
-                }
+                if (winningPlayerIndex == currentPlayerIndex) { currentPlayerIndex = currentPlayerIndex; }
+                else { currentPlayerIndex = (currentPlayerIndex + 1) % numberOfPlayers; } // Przejdź do kolejnego gracza 
             }
     
         } while (!censoredAnswer.toString().equals(answer));

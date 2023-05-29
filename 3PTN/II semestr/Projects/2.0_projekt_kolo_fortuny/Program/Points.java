@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -13,18 +12,11 @@ public class Points {
     public Points(String[] players) {
         points = new HashMap<>();
         cash = new HashMap<>();
-        for (String player : players) {
-            points.put(player, 0);
-        }
+        for (String player : players) { points.put(player, 0); }
     }
 
-    public HashMap<String, Integer> getPoints() {
-        return points;
-    }
-
-    public HashMap<String, Integer> getCash() {
-        return cash;
-    }
+    public HashMap<String, Integer> getPoints() { return points; }
+    public HashMap<String, Integer> getCash() { return cash; }
 
     public void countPoints(String playerName, boolean isConsonantGuessed, boolean isAnswerGuessed, int difficulty) {
         int currentPoints = points.getOrDefault(playerName, 0);
@@ -75,7 +67,7 @@ public class Points {
         int currentCash = cash.getOrDefault(playerName, 0);
         
         randomMoney();
-        if (randomCash != 0 || randomCash != 1) {
+        if (randomCash != 0 && randomCash != 1) {
             System.out.println("Wheel of fortune | " + randomCash + "$");
             
             // Assign cash for each correct consonant
@@ -86,9 +78,7 @@ public class Points {
             }
             
             // Assign cash for each correct answer
-            if (isAnswerGuessed) {
-                cash.put(playerName, currentCash);
-            }
+            if (isAnswerGuessed) { cash.put(playerName, currentCash); }
 
         } else if (randomCash == 0) {
             System.out.println("Wheel of fortune | Bankrupt!");

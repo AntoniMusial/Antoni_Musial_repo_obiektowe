@@ -18,14 +18,16 @@ public class ChooseDifficultyOfQuestions extends Questions {
         this.DifficultyOfQuestions = scanner.nextInt();
     }
 
-    public void randomizeDifficulty() {
+    public Integer randomizeDifficulty() {
         Random rand = new Random();
         this.DifficultyOfQuestions = rand.nextInt(3) + 1; // losuje od 1 do 3
+
+        return DifficultyOfQuestions;
     }
 
-    public void setIncreasedDifficulty() {
+    public Integer setIncreasedDifficulty() {
         Integer NumberOfRounds = settings.getNumberOfRounds();
-        Integer CurrentRound = play.getCurrentRound();
+        Integer CurrentRound = Play.getCurrentRound();
         System.out.println(NumberOfRounds);
 
         if (NumberOfRounds == 3) {
@@ -40,6 +42,8 @@ public class ChooseDifficultyOfQuestions extends Questions {
             if (CurrentRound == 4) { this.DifficultyOfQuestions = 3; }
 
         }
+
+        return DifficultyOfQuestions;
     }
 
     @Override

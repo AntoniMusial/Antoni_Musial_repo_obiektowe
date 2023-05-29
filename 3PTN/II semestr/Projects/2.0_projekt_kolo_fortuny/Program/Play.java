@@ -13,6 +13,7 @@ public class Play {
     private static Integer CurrentRound = 0;
     private static String selectedCategory = "";
     private static ArrayList<String> drawnQuestions;
+    private static Boolean setIncreasedDifficulty;
 
     public static String getSelectedCategory() { return selectedCategory; }
     public static void setSelectedCategory(String selectedCategory) { Play.selectedCategory = selectedCategory; }
@@ -67,7 +68,7 @@ public class Play {
                 else { System.out.println("Players' name | Not set"); }
                 if (NumberOfRounds != 0) { System.out.println("Number of rounds | Set"); }
                 else { System.out.println("Number of rounds | Not set"); }
-                if (difficulty != 0) { System.out.println("Difficulty | Set"); }
+                if (difficulty != 0 || setIncreasedDifficulty != null) { System.out.println("Difficulty | Set"); }
                 else { System.out.println("Difficulty | Not set"); }
                 if (selectedCategory != "" && rngCategory != null) { System.out.println("Category | Set"); }
                 else { System.out.println("Category | Not set"); }
@@ -75,22 +76,29 @@ public class Play {
                 if (NumberOfPlayers != 0) {
                     if (PlayersName != null) {
                         if (NumberOfRounds != 0) {
-                            if (difficulty != 0) {
-                                if (selectedCategory != "" && rngCategory != null) {
-                                    Points points = new Points(PlayersName);
+                            if (difficulty != 0 || setIncreasedDifficulty != null) {
+                                if (selectedCategory != "" || rngCategory == true || false) {
+                                    draw.points = new Points(PlayersName); // Initialize Points object
 
                                     do {
+                                        if (rngCategory == true) { selectedCategory = draw.drawCategory(); }
+                                        if (setIncreasedDifficulty == true) { difficulty = chooseDifficultyOfQuestions.setIncreasedDifficulty(); }
                                         CurrentRound++;
                                         System.out.println("Current round | " + CurrentRound + "/" + NumberOfRounds);
                                         String question = draw.drawQuestionForDifficultyAndCategory(selectedCategory, difficulty);
-                                        String result = draw.answerPlayer(draw, selectedCategory, question, NumberOfPlayers, PlayersName, points, difficulty);
+                                        String result = draw.answerPlayer(draw, selectedCategory, question, NumberOfPlayers, PlayersName, draw.points, difficulty);
                                         System.out.println("Result | " + result);
                                     } while (CurrentRound != NumberOfRounds);
                             
-                                    // Wyświetl końcowe punkty dla każdego gracza
-                                    HashMap<String, Integer> finalPoints = points.getPoints();
+                                    // Print the final points for each player
+                                    HashMap<String, Integer> finalPoints = draw.points.getPoints();
+                                    for (String playerName : PlayersName) { System.out.println(playerName + " - points | " + finalPoints.get(playerName)); }
+                            
+                                    // Print the final cash for each player
+                                    HashMap<String, Integer> finalCash = draw.points.getCash();
                                     for (String playerName : PlayersName) {
-                                        System.out.println("Points of " + playerName + " | " + finalPoints.get(playerName));
+                                        if (finalCash.get(playerName) != null) { System.out.println(playerName + " - cash | " + finalCash.get(playerName) + "$"); }
+                                        else { System.out.println(playerName + " - cash | 0$"); }
                                     }
 
                                 } else { System.out.println("Set category before starting the game.");}
@@ -260,19 +268,17 @@ public class Play {
                                         settings.cls();
                                         System.out.println("You have selected | Set random difficulty of questions");
 
-                                        chooseDifficultyOfQuestions.randomizeDifficulty();
-                                        difficulty = chooseDifficultyOfQuestions.getDifficultyOfQuestions();
+                                        difficulty = chooseDifficultyOfQuestions.randomizeDifficulty();
 
                                     } else if (Choose == 3) {
                                         settings.cls();
                                         System.out.println("You have selected | Set increases difficulty");
     
                                         NumberOfRounds = settings.getNumberOfRounds();
-                                        if (NumberOfRounds >= 3) {
-                                            chooseDifficultyOfQuestions.setIncreasedDifficulty();
-
-                                        } else {
+                                        if (NumberOfRounds >= 3) { setIncreasedDifficulty = true; }
+                                        else {
                                             System.out.println("Set number of rounds to 3 or bigger\nYour current number of rounds | " + NumberOfRounds);
+                                            setIncreasedDifficulty = false;
 
                                         }
 
@@ -291,9 +297,7 @@ public class Play {
                                 if (difficulty != 0) {
                                     chooseDifficultyOfQuestions.displayQuestions(difficulty.toString());
 
-                                } else {
-                                    questions.displayQuestions();
-                                }
+                                } else { questions.displayQuestions(); }
 
                             } else {
                                 settings.cls();
@@ -301,8 +305,7 @@ public class Play {
 
                             }
                         }
-                        while (Choose != 4);
-                        Choose = 0;
+                        while (Choose != 4);    Choose = 0;
                     }
                 } while (Choose != 4);  Choose = 0;
 
